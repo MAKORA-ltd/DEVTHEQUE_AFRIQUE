@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Utilisateur - Dev-theque_Afrique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/profile.css" rel="stylesheet">
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Barre latérale du profil -->
+        <div class="profile-sidebar">
+            <div class="user-info">
+                <div class="user-avatar">
+                    <img src="images/default-avatar.png" alt="Photo de profil">
+                    <button class="edit-avatar">
+                        <i class="fas fa-camera"></i>
+                    </button>
+                </div>
+                <h2 class="user-name">John Doe</h2>
+                <p class="user-role">Développeur Full Stack</p>
+                <div class="user-points">
+                    <div class="points-display">
+                        <i class="fas fa-coins"></i>
+                        <span class="points-count">250</span>
+                        <span class="points-label">points</span>
+                    </div>
+                    <button class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#addPointsModal">
+                        <i class="fas fa-plus-circle"></i> Ajouter des points
+                    </button>
+                </div>
+            </div>
+            
+            <nav class="profile-nav">
+                <a href="#overview" class="nav-item active">
+                    <i class="fas fa-user"></i> Vue d'ensemble
+                </a>
+                <a href="#documents" class="nav-item">
+                    <i class="fas fa-file-alt"></i> Mes Documents
+                </a>
+                <a href="#favorites" class="nav-item">
+                    <i class="fas fa-star"></i> Favoris
+                </a>
+                <a href="#history" class="nav-item">
+                    <i class="fas fa-history"></i> Historique
+                </a>
+                <a href="#settings" class="nav-item">
+                    <i class="fas fa-cog"></i> Paramètres
+                </a>
+            </nav>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="profile-content">
+            <!-- Vue d'ensemble -->
+            <section id="overview" class="profile-section active">
+                <h3>Vue d'ensemble</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-download"></i>
+                        <h4>45</h4>
+                        <p>Téléchargements</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-upload"></i>
+                        <h4>12</h4>
+                        <p>Documents partagés</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-bookmark"></i>
+                        <h4>28</h4>
+                        <p>Documents sauvegardés</p>
+                    </div>
+                </div>
+
+                <div class="user-details">
+                    <h4>Informations personnelles</h4>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="label">Email</span>
+                            <span class="value">john.doe@example.com</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Localisation</span>
+                            <span class="value">Lomé, Togo</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Membre depuis</span>
+                            <span class="value">Mars 2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">Spécialités</span>
+                            <div class="tags">
+                                <span class="tag">Python</span>
+                                <span class="tag">JavaScript</span>
+                                <span class="tag">Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Mes Documents -->
+            <section id="documents" class="profile-section">
+                <h3>Mes Documents</h3>
+                <div class="documents-toolbar">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-upload"></i> Partager un document
+                    </button>
+                    <div class="documents-filter">
+                        <select class="form-select">
+                            <option>Tous les documents</option>
+                            <option>Partagés</option>
+                            <option>En attente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="documents-grid">
+                    <!-- Document cards -->
+                </div>
+            </section>
+
+            <!-- Favoris -->
+            <section id="favorites" class="profile-section">
+                <h3>Favoris</h3>
+                <div class="favorites-grid">
+                    <!-- Favorite document cards -->
+                </div>
+            </section>
+
+            <!-- Historique -->
+            <section id="history" class="profile-section">
+                <h3>Historique</h3>
+                <div class="history-list">
+                    <!-- Activity history -->
+                </div>
+            </section>
+
+            <!-- Paramètres -->
+            <section id="settings" class="profile-section">
+                <h3>Paramètres</h3>
+                <form class="settings-form">
+                    <div class="form-group">
+                        <label>Nom complet</label>
+                        <input type="text" class="form-control" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" class="form-control" value="john.doe@example.com">
+                    </div>
+                    <div class="form-group">
+                        <label>Bio</label>
+                        <textarea class="form-control" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Localisation</label>
+                        <input type="text" class="form-control" value="Lomé, Togo">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Sauvegarder les modifications</button>
+                </form>
+            </section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/platforms.js"></script>
+</body>
+</html> 

@@ -1,0 +1,80 @@
+<!-- Ajout d'une modal d'inscription aux formations -->
+<div class="modal fade" id="enrollCourseModal" tabindex="-1" aria-labelledby="enrollCourseModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="enrollCourseModalLabel">S'inscrire à la formation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="course-preview">
+                            <img src="" id="course-image" alt="Formation" class="img-fluid rounded">
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <h4 id="course-title">Développement Web</h4>
+                        <div class="course-meta">
+                            <span><i class="fas fa-clock"></i> <span id="course-duration">10 semaines</span></span>
+                            <span><i class="fas fa-users"></i> <span id="course-students">356 étudiants</span></span>
+                            <span><i class="fas fa-star"></i> <span id="course-rating">4.7</span></span>
+                        </div>
+                        
+                        <div class="course-price-info mt-3">
+                            <div class="price-tag course-price">
+                                <i class="fas fa-coins"></i> <span id="course-points">300</span> points
+                            </div>
+                            <div class="user-balance">
+                                Votre solde: <span class="points-count">250</span> points
+                            </div>
+                        </div>
+                        
+                        <div class="course-details mt-3">
+                            <h5>Ce que vous apprendrez</h5>
+                            <ul class="course-features" id="course-features">
+                                <!-- Rempli dynamiquement -->
+                            </ul>
+                        </div>
+                        
+                        <div id="course-insufficient-funds" class="alert alert-warning mt-3" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Solde insuffisant. <a href="#" data-bs-toggle="modal" data-bs-target="#addPointsModal" data-bs-dismiss="modal">Ajouter des points</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                <button type="button" class="btn btn-primary btn-enroll-course">
+                    <i class="fas fa-graduation-cap me-2"></i> S'inscrire maintenant
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Exemple de carte formation modifiée -->
+<div class="course-card" data-id="1" data-title="Développement Web" data-duration="10 semaines" data-students="356" data-rating="4.7" data-points="300" data-image="images/web-dev.jpg">
+    <div class="course-banner">
+        <img src="images/web-dev.jpg" alt="Développement Web">
+        <span class="course-level">Débutant</span>
+    </div>
+    <div class="course-content">
+        <h3>Développement Web</h3>
+        <p>Formation complète en développement web front-end et back-end.</p>
+        <ul class="course-features-preview">
+            <li>HTML, CSS, JavaScript</li>
+            <li>React et Node.js</li>
+            <li>Bases de données</li>
+        </ul>
+        <div class="course-footer">
+            <div class="course-price">
+                <i class="fas fa-coins"></i> <span class="price-amount">300</span> points
+            </div>
+            <button class="btn btn-primary btn-enroll" data-bs-toggle="modal" data-bs-target="#enrollCourseModal">
+                <i class="fas fa-graduation-cap"></i> S'inscrire
+            </button>
+        </div>
+    </div>
+</div> 

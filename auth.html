@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription/Connexion - Dev-thèque Afrique</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Dev-thèque Afrique</a>
+        </div>
+    </nav>
+
+    <!-- Section Auth -->
+    <section class="auth-section py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card shadow-lg">
+                        <div class="card-body p-5">
+                            <!-- Onglets -->
+                            <ul class="nav nav-pills mb-4" id="authTab" role="tablist">
+                                <li class="nav-item flex-fill" role="presentation">
+                                    <button class="nav-link active w-100" data-bs-toggle="pill" data-bs-target="#connexion">Connexion</button>
+                                </li>
+                                <li class="nav-item flex-fill" role="presentation">
+                                    <button class="nav-link w-100" data-bs-toggle="pill" data-bs-target="#inscription">Inscription</button>
+                                </li>
+                            </ul>
+
+                            <!-- Contenu des onglets -->
+                            <div class="tab-content" id="authTabContent">
+                                <!-- Formulaire de Connexion -->
+                                <div class="tab-pane fade show active" id="connexion">
+                                    <form id="login-form">
+                                        <div class="mb-3">
+                                            <label for="login-email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="login-email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="login-password" class="form-label">Mot de passe</label>
+                                            <input type="password" class="form-control" id="login-password" required>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="remember-me">
+                                            <label class="form-check-label" for="remember-me">Se souvenir de moi</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">Se connecter</button>
+                                        <div class="text-center mt-3">
+                                            <a href="#" class="text-muted">Mot de passe oublié ?</a>
+                                        </div>
+                                    </form>
+                                </div>
+
+                                <!-- Formulaire d'Inscription -->
+                                <div class="tab-pane fade" id="inscription">
+                                    <form id="register-form">
+                                        <div class="mb-3">
+                                            <label for="register-name" class="form-label">Nom complet</label>
+                                            <input type="text" class="form-control" id="register-name" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="register-email" class="form-label">Email</label>
+                                            <input type="email" class="form-control" id="register-email" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="register-password" class="form-label">Mot de passe</label>
+                                            <input type="password" class="form-control" id="register-password" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="register-confirm-password" class="form-label">Confirmer le mot de passe</label>
+                                            <input type="password" class="form-control" id="register-confirm-password" required>
+                                        </div>
+                                        <div class="mb-3 form-check">
+                                            <input type="checkbox" class="form-check-input" id="terms" required>
+                                            <label class="form-check-label" for="terms">J'accepte les conditions d'utilisation</label>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html> 

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Communauté | 𝔻𝕖𝕧-��𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕔𝕦𝕖</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/communaute.css">
+</head>
+<body>
+    <!-- Barre de navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard-home.html">𝔻𝕖𝕧-𝕥𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕢𝕦𝕖</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard-home.html">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="bibliotheque.html">Bibliothèque</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="formation.html">Formations</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="communaute.html">Communauté</a>
+                    </li>
+                </ul>
+                <div class="d-flex align-items-center">
+                    <div class="points-display me-3">
+                        <i class="fas fa-coins"></i> <span id="userPoints">0</span> points
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle" type="button" id="userDropdown" data-bs-toggle="dropdown">
+                            <i class="fas fa-user-circle"></i> <span id="userName">Utilisateur</span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="profile.html">Profil</a></li>
+                            <li><a class="dropdown-item" href="#" id="logoutBtn">Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- En-tête de la page communautaire -->
+    <div class="community-header">
+        <div class="container py-4">
+            <h1><i class="fas fa-users"></i> Espace Communautaire</h1>
+            <p class="lead">Partagez vos connaissances, gagnez des points et posez vos questions</p>
+        </div>
+    </div>
+
+    <!-- Statistiques communautaires -->
+    <div class="container mt-4">
+        <div class="row stats-row">
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-file-upload"></i>
+                    <h3 id="totalUploads">0</h3>
+                    <p>Fichiers partagés</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-download"></i>
+                    <h3 id="totalDownloads">0</h3>
+                    <p>Téléchargements</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-question-circle"></i>
+                    <h3 id="totalQuestions">0</h3>
+                    <p>Questions posées</p>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="stats-card">
+                    <i class="fas fa-users"></i>
+                    <h3 id="activeUsers">0</h3>
+                    <p>Contributeurs actifs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Onglets pour fichiers et questions -->
+    <div class="container mt-4">
+        <ul class="nav nav-tabs" id="communityTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="files-tab" data-bs-toggle="tab" data-bs-target="#files" type="button" role="tab">
+                    <i class="fas fa-file-alt"></i> Fichiers partagés
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="questions-tab" data-bs-toggle="tab" data-bs-target="#questions" type="button" role="tab">
+                    <i class="fas fa-question-circle"></i> Questions & Réponses
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="my-contributions-tab" data-bs-toggle="tab" data-bs-target="#my-contributions" type="button" role="tab">
+                    <i class="fas fa-user-edit"></i> Mes contributions
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-3" id="communityTabsContent">
+            <!-- Onglet fichiers -->
+            <div class="tab-pane fade show active" id="files" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Fichiers de la communauté</h2>
+                    <button class="btn upload-btn" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <i class="fas fa-upload"></i> Uploader un fichier
+                    </button>
+                </div>
+
+                <!-- Filtres pour les fichiers -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <select class="form-select" id="categoryFilter">
+                            <option value="all">Toutes les catégories</option>
+                            <option value="development">Développement</option>
+                            <option value="design">Design</option>
+                            <option value="data">Science des données</option>
+                            <option value="ai">Intelligence artificielle</option>
+                            <option value="systems">Systèmes</option>
+                            <option value="networks">Réseaux</option>
+                            <option value="other">Autres</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select" id="sortFilter">
+                            <option value="recent">Plus récents</option>
+                            <option value="popular">Plus populaires</option>
+                            <option value="downloads">Plus téléchargés</option>
+                            <option value="points">Points (croissant)</option>
+                            <option value="points-desc">Points (décroissant)</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchFiles" placeholder="Rechercher un fichier...">
+                            <button class="btn search-btn" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liste des fichiers -->
+                <div class="row" id="filesList">
+                    <!-- Contenu chargé dynamiquement -->
+                    <div class="col-12 text-center py-5">
+                        <div class="spinner-border text-gold" role="status">
+                            <span class="visually-hidden">Chargement...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Pagination des fichiers" class="mt-4">
+                    <ul class="pagination justify-content-center" id="filesPagination">
+                        <!-- Pagination générée dynamiquement -->
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Onglet questions -->
+            <div class="tab-pane fade" id="questions" role="tabpanel">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Questions & Réponses</h2>
+                    <button class="btn upload-btn" data-bs-toggle="modal" data-bs-target="#askQuestionModal">
+                        <i class="fas fa-question-circle"></i> Poser une question
+                    </button>
+                </div>
+
+                <!-- Filtres pour les questions -->
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <select class="form-select" id="questionCategoryFilter">
+                            <option value="all">Toutes les catégories</option>
+                            <option value="development">Développement</option>
+                            <option value="design">Design</option>
+                            <option value="data">Science des données</option>
+                            <option value="ai">Intelligence artificielle</option>
+                            <option value="systems">Systèmes</option>
+                            <option value="networks">Réseaux</option>
+                            <option value="other">Autres</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <select class="form-select" id="questionStatusFilter">
+                            <option value="all">Tous les statuts</option>
+                            <option value="open">Questions ouvertes</option>
+                            <option value="answered">Questions répondues</option>
+                            <option value="solved">Questions résolues</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="searchQuestions" placeholder="Rechercher une question...">
+                            <button class="btn search-btn" type="button">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Liste des questions -->
+                <div id="questionsList">
+                    <!-- Contenu chargé dynamiquement -->
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-gold" role="status">
+                            <span class="visually-hidden">Chargement...</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Pagination des questions" class="mt-4">
+                    <ul class="pagination justify-content-center" id="questionsPagination">
+                        <!-- Pagination générée dynamiquement -->
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Onglet mes contributions -->
+            <div class="tab-pane fade" id="my-contributions" role="tabpanel">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card contribution-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-file-upload"></i> Mes fichiers partagés</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="myFilesList">
+                                    <!-- Contenu chargé dynamiquement -->
+                                    <div class="text-center py-3">
+                                        <div class="spinner-border text-gold" role="status">
+                                            <span class="visually-hidden">Chargement...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card contribution-card">
+                            <div class="card-header">
+                                <h3><i class="fas fa-question-circle"></i> Mes questions</h3>
+                            </div>
+                            <div class="card-body">
+                                <div id="myQuestionsList">
+                                    <!-- Contenu chargé dynamiquement -->
+                                    <div class="text-center py-3">
+                                        <div class="spinner-border text-gold" role="status">
+                                            <span class="visually-hidden">Chargement...</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Statistiques personnelles -->
+                <div class="card contribution-card mt-4">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-bar"></i> Mes statistiques</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-3 text-center">
+                                <div class="personal-stat">
+                                    <i class="fas fa-upload"></i>
+                                    <h4 id="myTotalUploads">0</h4>
+                                    <p>Fichiers partagés</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="personal-stat">
+                                    <i class="fas fa-download"></i>
+                                    <h4 id="myTotalDownloads">0</h4>
+                                    <p>Téléchargements reçus</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="personal-stat">
+                                    <i class="fas fa-coins"></i>
+                                    <h4 id="pointsEarned">0</h4>
+                                    <p>Points gagnés</p>
+                                </div>
+                            </div>
+                            <div class="col-md-3 text-center">
+                                <div class="personal-stat">
+                                    <i class="fas fa-star"></i>
+                                    <h4 id="myRating">0.0</h4>
+                                    <p>Note moyenne</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'upload de fichier -->
+    <div class="modal fade" id="uploadModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-upload"></i> Uploader un fichier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="uploadForm" enctype="multipart/form-data">
+                        <!-- Informations du fichier -->
+                        <div class="mb-3">
+                            <label for="fileTitle" class="form-label">Titre du fichier *</label>
+                            <input type="text" class="form-control" id="fileTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileDescription" class="form-label">Description *</label>
+                            <textarea class="form-control" id="fileDescription" rows="3" required></textarea>
+                            <small class="text-muted">Décrivez le contenu et l'utilité de votre fichier (200-500 caractères)</small>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="fileCategory" class="form-label">Catégorie *</label>
+                                    <select class="form-select" id="fileCategory" required>
+                                        <option value="">Choisir une catégorie</option>
+                                        <option value="development">Développement</option>
+                                        <option value="design">Design</option>
+                                        <option value="data">Science des données</option>
+                                        <option value="ai">Intelligence artificielle</option>
+                                        <option value="systems">Systèmes</option>
+                                        <option value="networks">Réseaux</option>
+                                        <option value="other">Autres</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="fileTags" class="form-label">Tags</label>
+                                    <input type="text" class="form-control" id="fileTags">
+                                    <small class="text-muted">Séparés par des virgules (ex: python, tutorial, data)</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="requestedPoints" class="form-label">Points demandés *</label>
+                            <input type="number" class="form-control" id="requestedPoints" min="0" max="1000" required>
+                            <small class="text-muted">Combien de points un utilisateur doit dépenser pour télécharger ce fichier (0-1000)</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileUpload" class="form-label">Fichier *</label>
+                            <input class="form-control" type="file" id="fileUpload" required>
+                            <small class="text-muted">Formats acceptés: PDF, DOCX, PPTX, ZIP, RAR, TXT, etc. (Max: 50MB)</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileThumbnail" class="form-label">Image d'aperçu</label>
+                            <input class="form-control" type="file" id="fileThumbnail" accept="image/*">
+                            <small class="text-muted">Format recommandé: 16:9, PNG ou JPG (Max: 5MB)</small>
+                        </div>
+
+                        <!-- Termes et conditions -->
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="termsCheck" required>
+                            <label class="form-check-label" for="termsCheck">
+                                Je confirme être l'auteur de ce fichier ou avoir les droits nécessaires pour le partager
+                            </label>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="moderationCheck" required>
+                            <label class="form-check-label" for="moderationCheck">
+                                Je comprends que le fichier sera examiné par les modérateurs avant d'être visible publiquement
+                            </label>
+                        </div>
+
+                        <div class="alert alert-info">
+                            <i class="fas fa-info-circle"></i> Processus de validation:
+                            <ul>
+                                <li>Votre fichier sera examiné par notre équipe dans les 24-48 heures</li>
+                                <li>Vous recevrez une notification lorsque votre fichier sera approuvé ou rejeté</li>
+                                <li>Vous gagnerez 50 points pour chaque téléchargement de votre fichier</li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="submitUpload">
+                        <i class="fas fa-upload"></i> Envoyer pour validation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pour poser une question -->
+    <div class="modal fade" id="askQuestionModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-question-circle"></i> Poser une question</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="questionForm">
+                        <div class="mb-3">
+                            <label for="questionTitle" class="form-label">Titre de la question *</label>
+                            <input type="text" class="form-control" id="questionTitle" required>
+                            <small class="text-muted">Soyez précis et clair dans votre question</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="questionCategory" class="form-label">Catégorie *</label>
+                            <select class="form-select" id="questionCategory" required>
+                                <option value="">Choisir une catégorie</option>
+                                <option value="development">Développement</option>
+                                <option value="design">Design</option>
+                                <option value="data">Science des données</option>
+                                <option value="ai">Intelligence artificielle</option>
+                                <option value="systems">Systèmes</option>
+                                <option value="networks">Réseaux</option>
+                                <option value="other">Autres</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="questionContent" class="form-label">Détails de la question *</label>
+                            <textarea class="form-control" id="questionContent" rows="5" required></textarea>
+                            <small class="text-muted">Décrivez votre problème en détail pour obtenir les meilleures réponses</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="questionTags" class="form-label">Tags</label>
+                            <input type="text" class="form-control" id="questionTags">
+                            <small class="text-muted">Séparés par des virgules (ex: python, erreur, installation)</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="relatedFile" class="form-label">Lier à un fichier (optionnel)</label>
+                            <select class="form-select" id="relatedFile">
+                                <option value="">Aucun fichier</option>
+                                <!-- Options chargées dynamiquement avec vos fichiers -->
+                            </select>
+                            <small class="text-muted">Si votre question concerne un fichier que vous avez partagé</small>
+                        </div>
+                        <div class="mb-3">
+                            <label for="questionImage" class="form-label">Image ou capture d'écran (optionnel)</label>
+                            <input class="form-control" type="file" id="questionImage" accept="image/*">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="submitQuestion">
+                        <i class="fas fa-paper-plane"></i> Publier la question
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de téléchargement de fichier -->
+    <div class="modal fade" id="downloadModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-download"></i> Télécharger le fichier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="text-center mb-4">
+                        <img src="" id="filePreviewImg" class="file-preview-img" alt="Aperçu du fichier">
+                    </div>
+                    <h4 id="downloadFileName">Nom du fichier</h4>
+                    <p id="downloadFileDesc">Description du fichier</p>
+                    
+                    <div class="d-flex justify-content-between file-details">
+                        <div>
+                            <i class="fas fa-user"></i> Par <span id="downloadFileAuthor">Auteur</span>
+                        </div>
+                        <div>
+                            <i class="fas fa-calendar"></i> <span id="downloadFileDate">Date</span>
+                        </div>
+                    </div>
+                    
+                    <hr>
+                    
+                    <div class="download-cost">
+```
+</file>
+
+<script src="js/platforms.js"></script>
+</body>
+</html>

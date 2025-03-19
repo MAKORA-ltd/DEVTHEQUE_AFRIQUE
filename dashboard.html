@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Dev-theque_Afrique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dashboard.css" rel="stylesheet">
+    <link href="css/notifications.css" rel="stylesheet">
+    <link href="css/search.css" rel="stylesheet">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Barre de navigation supérieure -->
+        <nav class="top-nav">
+            <div class="container-fluid">
+                <div class="nav-wrapper d-flex justify-content-between align-items-center">
+                    <div class="nav-left d-flex align-items-center">
+                        <a href="dashboard-home.html" class="nav-brand">
+                            <i class="fas fa-home me-2"></i>
+                            <span class="brand-text">Dev-thèque Afrique</span>
+                        </a>
+                        
+                        <!-- Fil d'Ariane intégré -->
+                        <div class="breadcrumb-nav d-none d-md-flex">
+                            <div class="breadcrumb-item">
+                                <i class="fas fa-angle-right mx-2"></i>
+                                <span>Tableau de bord</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-right d-flex align-items-center">
+                        <!-- Bouton recherche mobile -->
+                        <button class="btn-search-toggle d-md-none me-3">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        
+                        <!-- Points utilisateur -->
+                        <div class="user-points me-3 d-none d-sm-flex align-items-center">
+                            <i class="fas fa-coins text-warning"></i>
+                            <span class="points-count ms-1">250</span>
+                        </div>
+                        
+                        <!-- Menu utilisateur -->
+                        <div class="user-menu dropdown">
+                            <a href="#" class="dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="images/avatar-default.png" alt="Profile" class="user-avatar">
+                                <span class="d-none d-lg-inline-block ms-2">Mon compte</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i> Mon profil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark me-2"></i> Favoris</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-history me-2"></i> Historique</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Paramètres</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Barre de recherche responsive -->
+        <div class="search-container">
+            <div class="container-fluid">
+                <div class="search-section">
+                    <div class="search-bar">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Rechercher..." class="enhanced-search" id="dashboardSearch">
+                            <button type="button" class="btn-clear-search" id="clearSearch" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bannière de statistiques -->
+        <div class="stats-banner">
+            <div class="stat-item">
+                <i class="fas fa-project-diagram"></i>
+                <span class="stat-number">5</span>
+                <span class="stat-label">Projets actifs</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-tasks"></i>
+                <span class="stat-number">12</span>
+                <span class="stat-label">Tâches</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-certificate"></i>
+                <span class="stat-number">3</span>
+                <span class="stat-label">Certifications</span>
+            </div>
+        </div>
+
+        <!-- Fil d'Ariane mobile -->
+        <div class="mobile-breadcrumb d-md-none">
+            <div class="container-fluid">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <span>Tableau de bord</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Header -->
+            <header class="dashboard-header">
+                <button class="btn-menu-toggle d-md-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-bar">
+                    <form id="searchForm">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="search" id="globalSearch" placeholder="Rechercher documents, projets, formations...">
+                            <button type="button" class="btn-clear-search" id="clearSearch" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <button type="submit" class="search-btn d-none d-md-block">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </form>
+                    <div class="search-results" id="searchResults">
+                        <div class="search-results-header">
+                            <span class="results-count" id="resultsCount">0 résultats</span>
+                            <button class="btn-close-results" id="closeSearchResults">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="search-results-tabs">
+                            <button class="search-tab active" data-tab="all">Tous</button>
+                            <button class="search-tab" data-tab="documents">Documents</button>
+                            <button class="search-tab" data-tab="projects">Projets</button>
+                            <button class="search-tab" data-tab="courses">Formations</button>
+                        </div>
+                        <div class="search-results-container" id="searchResultsContainer">
+                            <div class="no-results text-center py-4" id="noResults">
+                                <i class="fas fa-search fa-2x mb-2"></i>
+                                <p>Aucun résultat trouvé</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="user-menu">
+                    <div class="nav-item dropdown notifications">
+                        <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger notification-badge" id="notificationBadge"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notificationsDropdown">
+                            <div class="notification-header d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Notifications</h6>
+                                <button class="btn btn-sm btn-link" id="markAllAsRead">Tout marquer comme lu</button>
+                            </div>
+                            <div class="notification-list" id="notificationList">
+                                <div class="text-center py-3" id="noNotifications">
+                                    <p class="text-muted">Aucune notification</p>
+                                </div>
+                            </div>
+                            <div class="notification-footer">
+                                <a href="notifications.html" class="btn btn-sm btn-primary w-100">Voir toutes les notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="profile-dropdown dropdown">
+                        <a class="dropdown-toggle d-flex align-items-center" href="#" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src="images/default-avatar.png" alt="Profile" class="avatar">
+                            <div class="profile-info d-none d-md-block">
+                                <span class="username">Nom d'utilisateur</span>
+                                <small class="d-block text-muted">Développeur</small>
+                            </div>
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                            <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i> Mon profil</a></li>
+                            <li><a class="dropdown-item" href="#settings"><i class="fas fa-cog me-2"></i> Paramètres</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="fas fa-coins me-2"></i> Points: <span class="points-count">250</span></a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item text-danger" href="#" data-platform="logout"><i class="fas fa-sign-out-alt me-2"></i> Déconnexion</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Contenu du tableau de bord -->
+            <div class="dashboard-content">
+                <div class="welcome-section">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-md-8">
+                            <h1 class="welcome-title">Bienvenue, <span class="username">Utilisateur</span></h1>
+                            <p class="welcome-subtitle">Voici un résumé de vos activités et des opportunités disponibles.</p>
+                        </div>
+                        <div class="col-md-4 text-md-end">
+                            <div class="user-activity">
+                                <div class="activity-item">
+                                    <span class="activity-label">Dernier accès</span>
+                                    <span class="activity-value" id="lastLogin">Hier, 15:45</span>
+                                </div>
+                                <div class="progress mt-2" style="height: 8px;">
+                                    <div class="progress-bar" style="width: 75%"></div>
+                                </div>
+                                <div class="d-flex justify-content-between mt-1">
+                                    <small>Niveau actuel</small>
+                                    <small>75%</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-container">
+                    <div class="row g-3">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Projets</h4>
+                                    <p>5 actifs</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Collaborateurs</h4>
+                                    <p>12 connectés</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-tasks"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Tâches</h4>
+                                    <p>8 en cours</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="stat-card">
+                                <div class="stat-icon">
+                                    <i class="fas fa-certificate"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h4>Certifications</h4>
+                                    <p>3 obtenues</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-grid">
+                    <section class="dashboard-section recent-projects">
+                        <div class="section-header d-flex justify-content-between align-items-center">
+                            <h2><i class="fas fa-project-diagram me-2"></i>Projets Récents</h2>
+                            <a href="#all-projects" class="btn btn-sm btn-primary">Voir tous</a>
+                        </div>
+                        <div class="row g-3">
+                            <div class="col-lg-6">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <h3 class="text-truncate">Projet E-commerce</h3>
+                                        <span class="badge bg-primary">En cours</span>
+                                    </div>
+                                    <p>Développement d'une plateforme e-commerce pour artisans locaux</p>
+                                    <div class="project-footer">
+                                        <div class="team-members">
+                                            <img src="images/avatar1.png" alt="Member 1">
+                                            <img src="images/avatar2.png" alt="Member 2">
+                                            <span>+3</span>
+                                        </div>
+                                        <div class="project-progress">
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 75%"></div>
+                                            </div>
+                                            <span>75%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="project-card">
+                                    <div class="project-header">
+                                        <h3 class="text-truncate">App Mobile Santé</h3>
+                                        <span class="badge bg-warning">En révision</span>
+                                    </div>
+                                    <p>Application de suivi médical pour zones rurales avec mode hors-ligne</p>
+                                    <div class="project-footer">
+                                        <div class="team-members">
+                                            <img src="images/avatar3.png" alt="Member 3">
+                                            <img src="images/avatar4.png" alt="Member 4">
+                                            <span>+2</span>
+                                        </div>
+                                        <div class="project-progress">
+                                            <div class="progress">
+                                                <div class="progress-bar" style="width: 90%"></div>
+                                            </div>
+                                            <span>90%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <div class="row g-4">
+                        <div class="col-lg-7">
+                            <section class="dashboard-section recent-activities">
+                                <div class="section-header d-flex justify-content-between align-items-center">
+                                    <h2><i class="fas fa-history me-2"></i>Activités Récentes</h2>
+                                    <a href="#all-activities" class="btn btn-sm btn-outline-primary">Historique</a>
+                                </div>
+                                <div class="activity-list">
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-code-branch"></i>
+                                        </div>
+                                        <div class="activity-info">
+                                            <p class="mb-1"><strong>Mise à jour du projet</strong></p>
+                                            <p class="mb-1">Nouveau commit sur la branche principale</p>
+                                            <small class="text-muted">Il y a 2 heures</small>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-comment"></i>
+                                        </div>
+                                        <div class="activity-info">
+                                            <p class="mb-1"><strong>Nouveau commentaire</strong></p>
+                                            <p class="mb-1">Kouam a commenté sur votre article IA</p>
+                                            <small class="text-muted">Il y a 5 heures</small>
+                                        </div>
+                                    </div>
+                                    <div class="activity-item">
+                                        <div class="activity-icon">
+                                            <i class="fas fa-download"></i>
+                                        </div>
+                                        <div class="activity-info">
+                                            <p class="mb-1"><strong>Nouveau document</strong></p>
+                                            <p class="mb-1">Vous avez téléchargé "Guide React Avancé"</p>
+                                            <small class="text-muted">Hier, 18:30</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <div class="col-lg-5">
+                            <section class="dashboard-section tasks">
+                                <div class="section-header d-flex justify-content-between align-items-center">
+                                    <h2><i class="fas fa-tasks me-2"></i>Tâches à faire</h2>
+                                    <a href="#all-tasks" class="btn btn-sm btn-outline-primary">Toutes les tâches</a>
+                                </div>
+                                <div class="tasks-list">
+                                    <div class="task-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="task1">
+                                            <label class="form-check-label" for="task1">
+                                                Terminer la maquette du site e-commerce
+                                            </label>
+                                        </div>
+                                        <div class="task-meta">
+                                            <span class="task-date">Aujourd'hui</span>
+                                            <span class="badge bg-danger">Urgent</span>
+                                        </div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="task2">
+                                            <label class="form-check-label" for="task2">
+                                                Réviser le module d'authentification
+                                            </label>
+                                        </div>
+                                        <div class="task-meta">
+                                            <span class="task-date">Demain</span>
+                                            <span class="badge bg-warning">Important</span>
+                                        </div>
+                                    </div>
+                                    <div class="task-item">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="task3">
+                                            <label class="form-check-label" for="task3">
+                                                Mettre à jour la documentation API
+                                            </label>
+                                        </div>
+                                        <div class="task-meta">
+                                            <span class="task-date">17 Mai</span>
+                                            <span class="badge bg-info">Normal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <button class="btn btn-sm btn-primary w-100">
+                                        <i class="fas fa-plus"></i> Ajouter une tâche
+                                    </button>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 mt-2">
+                        <div class="col-lg-8">
+                            <section class="dashboard-section courses">
+                                <div class="section-header d-flex justify-content-between align-items-center">
+                                    <h2><i class="fas fa-graduation-cap me-2"></i>Formations en cours</h2>
+                                    <a href="#all-courses" class="btn btn-sm btn-outline-primary">Toutes les formations</a>
+                                </div>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <div class="course-card">
+                                            <div class="course-progress">75%</div>
+                                            <h3 class="text-truncate">Développement Web Full Stack</h3>
+                                            <p>Formation complète en développement web moderne</p>
+                                            <div class="progress mb-3" style="height: 8px;">
+                                                <div class="progress-bar" style="width: 75%"></div>
+                                            </div>
+                                            <div class="course-footer">
+                                                <div class="course-meta">
+                                                    <span><i class="fas fa-clock"></i> 12 modules restants</span>
+                                                    <span><i class="fas fa-trophy"></i> 5 certificats</span>
+                                                </div>
+                                                <a href="#continue-course" class="btn btn-sm btn-primary">Continuer</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="course-card">
+                                            <div class="course-progress">42%</div>
+                                            <h3 class="text-truncate">Data Science avec Python</h3>
+                                            <p>Analyse de données et modèles prédictifs avec Python</p>
+                                            <div class="progress mb-3" style="height: 8px;">
+                                                <div class="progress-bar" style="width: 42%"></div>
+                                            </div>
+                                            <div class="course-footer">
+                                                <div class="course-meta">
+                                                    <span><i class="fas fa-clock"></i> 18 modules restants</span>
+                                                    <span><i class="fas fa-trophy"></i> 2 certificats</span>
+                                                </div>
+                                                <a href="#continue-course" class="btn btn-sm btn-primary">Continuer</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                        
+                        <div class="col-lg-4">
+                            <section class="dashboard-section badges">
+                                <div class="section-header">
+                                    <h2><i class="fas fa-award me-2"></i>Badges & Récompenses</h2>
+                                </div>
+                                <div class="badges-container">
+                                    <div class="badge-item">
+                                        <div class="badge-icon">
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                        <div class="badge-info">
+                                            <h4>Développeur Étoile</h4>
+                                            <p>Obtenu pour 5 projets réussis</p>
+                                        </div>
+                                    </div>
+                                    <div class="badge-item">
+                                        <div class="badge-icon">
+                                            <i class="fas fa-book"></i>
+                                        </div>
+                                        <div class="badge-info">
+                                            <h4>Lecteur Assidu</h4>
+                                            <p>20 documents consultés</p>
+                                        </div>
+                                    </div>
+                                    <div class="badge-item locked">
+                                        <div class="badge-icon">
+                                            <i class="fas fa-users"></i>
+                                        </div>
+                                        <div class="badge-info">
+                                            <h4>Collaborateur</h4>
+                                            <p>Participer à 10 discussions</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                    <section class="dashboard-section events mt-4">
+                        <div class="section-header d-flex justify-content-between align-items-center">
+                            <h2><i class="fas fa-calendar-alt me-2"></i>Événements à venir</h2>
+                            <a href="#all-events" class="btn btn-sm btn-outline-primary">Calendrier complet</a>
+                        </div>
+                        <div class="events-timeline">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">15</span>
+                                    <span class="month">Juin</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Hackathon Tech Afrique</h4>
+                                    <p>Un hackathon virtuel pour développer des solutions innovantes</p>
+                                    <div class="event-meta">
+                                        <span><i class="fas fa-users"></i> 120 participants</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> En ligne</span>
+                                        <span><i class="fas fa-clock"></i> 48 heures</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="btn btn-outline-primary" data-platform="hackathon">Participer</button>
+                                </div>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">22</span>
+                                    <span class="month">Juin</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Webinaire: Intelligence Artificielle en Afrique</h4>
+                                    <p>Découvrez les applications de l'IA adaptées au contexte africain</p>
+                                    <div class="event-meta">
+                                        <span><i class="fas fa-users"></i> 85 inscrits</span>
+                                        <span><i class="fas fa-map-marker-alt"></i> En ligne</span>
+                                        <span><i class="fas fa-clock"></i> 2 heures</span>
+                                    </div>
+                                </div>
+                                <div class="event-actions">
+                                    <button class="btn btn-outline-primary" data-platform="webinar">S'inscrire</button>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/notifications.js"></script>
+    <script src="js/platforms.js"></script>
+    <script src="js/search.js"></script>
+    <script src="js/points.js"></script>
+</body>
+</html> 

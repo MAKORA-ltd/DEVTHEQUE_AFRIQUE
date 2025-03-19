@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev-thèque Afrique - Plateforme de Collaboration Tech</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+</head>
+<body>
+    <div id="particles-js" class="particles"></div>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <span class="title-text">|𝔻𝕖𝕧-𝕥𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕢𝕦𝕖|</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#accueil">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formation">Formation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#evenements">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#opportunites">Opportunités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#bibliotheque">Bibliothèque</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <header class="main-header">
+        <div class="container">
+            <h1 class="display-2 fw-bold mb-4">Bienvenue sur Dev-thèque Afrique</h1>
+            <p class="lead fs-3 mb-5">La plateforme qui connecte les talents tech africains et favorise l'innovation à travers le continent</p>
+            <div class="auth-buttons mt-5">
+                <button class="btn btn-primary btn-lg me-4 px-5 py-3" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    <i class="fas fa-sign-in-alt me-2"></i>Connexion
+                </button>
+                <button class="btn btn-outline-light btn-lg px-5 py-3" data-bs-toggle="modal" data-bs-target="#registerModal">
+                    <i class="fas fa-user-plus me-2"></i>Inscription
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Objectifs -->
+    <section id="objectifs" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Nos Objectifs</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card tech-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-microchip fa-3x mb-3"></i>
+                            <h3>Innovation Technologique</h3>
+                            <p>Développez des solutions innovantes</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card tech-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-code-branch fa-3x mb-3"></i>
+                            <h3>Collaboration Open Source</h3>
+                            <p>Contribuez à des projets communautaires</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card tech-card">
+                        <div class="card-body text-center">
+                            <i class="fas fa-brain fa-3x mb-3"></i>
+                            <h3>Intelligence Artificielle</h3>
+                            <p>Explorez les frontières de l'IA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Projets en Vedette</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/projet1.jpg" class="card-img-top" alt="Projet 1">
+                        <div class="card-body">
+                            <h3 class="card-title">Application Mobile de Santé</h3>
+                            <p class="card-text">Une application mobile développée par des talents africains pour améliorer l'accès aux soins de santé.</p>
+                            <a href="#" class="btn btn-primary requires-auth">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/projet2.jpg" class="card-img-top" alt="Projet 2">
+                        <div class="card-body">
+                            <h3 class="card-title">Plateforme d'Éducation en Ligne</h3>
+                            <p class="card-text">Une plateforme éducative innovante pour l'apprentissage des technologies en Afrique.</p>
+                            <a href="#" class="btn btn-primary requires-auth">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <img src="images/projet3.jpg" class="card-img-top" alt="Projet 3">
+                        <div class="card-body">
+                            <h3 class="card-title">Solution de Commerce Électronique</h3>
+                            <p class="card-text">Une solution e-commerce adaptée aux marchés africains.</p>
+                            <a href="#" class="btn btn-primary requires-auth">En savoir plus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Formation -->
+    <section id="formation" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Formations Disponibles</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Développement Web</h3>
+                            <p class="card-text">Formation complète en développement web front-end et back-end.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>HTML, CSS, JavaScript</li>
+                                <li><i class="fas fa-check text-success me-2"></i>React et Node.js</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Bases de données</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-3 requires-auth">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Intelligence Artificielle</h3>
+                            <p class="card-text">Formation en IA et apprentissage automatique.</p>
+                            <ul class="list-unstyled">
+                                <li><i class="fas fa-check text-success me-2"></i>Python pour l'IA</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Machine Learning</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Deep Learning</li>
+                            </ul>
+                            <a href="#" class="btn btn-primary mt-3 requires-auth">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Événements -->
+    <section id="evenements" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Événements à Venir</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <span class="badge bg-primary">15 Juin 2024</span>
+                            </div>
+                            <h3 class="card-title">Hackathon Tech Afrique</h3>
+                            <p class="card-text">Un hackathon virtuel pour développer des solutions innovantes pour l'Afrique.</p>
+                            <a href="#" class="btn btn-outline-primary requires-auth">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <span class="badge bg-primary">20 Juin 2024</span>
+                            </div>
+                            <h3 class="card-title">Webinaire IA</h3>
+                            <p class="card-text">Conférence en ligne sur les applications de l'IA en Afrique.</p>
+                            <a href="#" class="btn btn-outline-primary requires-auth">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <div class="text-center mb-3">
+                                <span class="badge bg-primary">25 Juin 2024</span>
+                            </div>
+                            <h3 class="card-title">Workshop DevOps</h3>
+                            <p class="card-text">Atelier pratique sur les pratiques DevOps modernes.</p>
+                            <a href="#" class="btn btn-outline-primary requires-auth">S'inscrire</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Opportunités -->
+    <section id="opportunites" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Opportunités</h2>
+            <div class="row">
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Offres d'Emploi</h3>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action requires-auth">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Développeur Full Stack</h5>
+                                        <small>Il y a 3 jours</small>
+                                    </div>
+                                    <p class="mb-1">Entreprise Tech Africaine - Remote</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action requires-auth">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Data Scientist</h5>
+                                        <small>Il y a 5 jours</small>
+                                    </div>
+                                    <p class="mb-1">Startup IA - Dakar</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Stages</h3>
+                            <div class="list-group">
+                                <a href="#" class="list-group-item list-group-item-action requires-auth">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Stage Développement Web</h5>
+                                        <small>Il y a 2 jours</small>
+                                    </div>
+                                    <p class="mb-1">Agence Web - 3 mois</p>
+                                </a>
+                                <a href="#" class="list-group-item list-group-item-action requires-auth">
+                                    <div class="d-flex w-100 justify-content-between">
+                                        <h5 class="mb-1">Stage UI/UX Design</h5>
+                                        <small>Il y a 4 jours</small>
+                                    </div>
+                                    <p class="mb-1">Studio Design - 6 mois</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Bibliothèque -->
+    <section id="bibliotheque" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Bibliothèque & Documentation</h2>
+            
+            <!-- Barre de recherche -->
+            <div class="search-container mb-5">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Rechercher une documentation...">
+                    <button class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="filter-tags mt-3">
+                    <span class="badge me-2">Programmation</span>
+                    <span class="badge me-2">Intelligence Artificielle</span>
+                    <span class="badge me-2">Réseaux</span>
+                    <span class="badge me-2">Sciences</span>
+                    <span class="badge">Tous les sujets</span>
+                </div>
+            </div>
+
+            <!-- Grille de documentation -->
+            <div class="row">
+                <!-- Section Documents Récents -->
+                <div class="col-lg-8">
+                    <h3 class="mb-4">Documents Récents</h3>
+                    <div class="doc-grid">
+                        <!-- Document 1 -->
+                        <div class="card doc-card">
+                            <div class="card-body">
+                                <div class="doc-type">
+                                    <i class="fas fa-file-pdf"></i>
+                                </div>
+                                <h4>Guide Complet Python</h4>
+                                <p class="doc-meta">
+                                    <span><i class="fas fa-user"></i> Par MAKORA</span>
+                                    <span><i class="fas fa-calendar"></i> 15 Mars 2024</span>
+                                </p>
+                                <p class="card-text">Guide complet pour la programmation Python, de débutant à avancé.</p>
+                                <div class="doc-footer">
+                                    <div class="doc-stats">
+                                        <span><i class="fas fa-download"></i> 234</span>
+                                        <span><i class="fas fa-star"></i> 4.8</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm requires-auth">Télécharger</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 2 -->
+                        <div class="card doc-card">
+                            <div class="card-body">
+                                <div class="doc-type">
+                                    <i class="fas fa-file-code"></i>
+                                </div>
+                                <h4>Architecture Microservices</h4>
+                                <p class="doc-meta">
+                                    <span><i class="fas fa-user"></i> Par Communauté</span>
+                                    <span><i class="fas fa-calendar"></i> 12 Mars 2024</span>
+                                </p>
+                                <p class="card-text">Documentation complète sur l'architecture microservices.</p>
+                                <div class="doc-footer">
+                                    <div class="doc-stats">
+                                        <span><i class="fas fa-download"></i> 156</span>
+                                        <span><i class="fas fa-star"></i> 4.6</span>
+                                    </div>
+                                    <button class="btn btn-primary btn-sm requires-auth">Télécharger</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <!-- Forum de Discussion -->
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <h4 class="card-title">Forum de Discussion</h4>
+                            <div class="discussion-list">
+                                <div class="discussion-item">
+                                    <h5>Discussion sur l'IA</h5>
+                                    <p>15 messages - Dernier: il y a 2h</p>
+                                </div>
+                                <div class="discussion-item">
+                                    <h5>Débat DevOps</h5>
+                                    <p>23 messages - Dernier: il y a 5h</p>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary w-100 mt-3">
+                                Nouvelle Discussion
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Contributeurs -->
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Top Contributeurs</h4>
+                            <div class="contributors-list">
+                                <div class="contributor-item">
+                                    <img src="images/avatar1.jpg" alt="Contributeur" class="contributor-avatar">
+                                    <div class="contributor-info">
+                                        <h5>MAKORA</h5>
+                                        <p>25 documents partagés</p>
+                                    </div>
+                                </div>
+                                <!-- Autres contributeurs... -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Contactez-nous</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form id="contact-form" class="card">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Nom complet</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Sujet</label>
+                                <input type="text" class="form-control" id="subject" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message</label>
+                                <textarea class="form-control" id="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Dev-thèque Afrique</h5>
+                    <p>Plateforme de collaboration technologique pour l'Afrique</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Créé par</h5>
+                    <div class="creator-container">
+                        <p class="creator-name">𝕄𝔸𝕂𝕆ℝ𝔸</p>
+                    </div>
+                    <div class="contact-info">
+                        <a href="https://wa.me/22897172729" class="text-white me-3" target="_blank">
+                            <i class="fab fa-whatsapp"></i> +228 97 17 27 29
+                        </a>
+                        <a href="https://t.me/badArchange1" class="text-white" target="_blank">
+                            <i class="fab fa-telegram"></i> @badArchange1
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <h5>Suivez-nous</h5>
+                    <div class="social-links">
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton de changement de thème -->
+    <button class="theme-switch" id="themeSwitch" aria-label="Changer de thème">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/particles-config.js"></script>
+    <script src="js/theme.js"></script>
+    <script>
+        // Initialisation des particules
+        document.addEventListener('DOMContentLoaded', function() {
+            particlesJS.load('particles-js', 'js/particles-config.js');
+        });
+    </script>
+
+    <!-- Modales -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Connexion requise</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info mb-3">
+                        <i class="fas fa-info-circle me-2"></i>
+                        Veuillez vous connecter pour accéder à cette fonctionnalité.
+                    </div>
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="login-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="login-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="login-password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="login-password" required>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">Se connecter</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <p>Pas encore de compte ?</p>
+                        <button class="btn btn-outline-primary" onclick="openRegisterModal()">
+                            Créer un compte
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Inscription</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="register-name" class="form-label">Nom complet</label>
+                            <input type="text" class="form-control" id="register-name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="register-email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="register-password" class="form-label">Mot de passe</label>
+                            <input type="password" class="form-control" id="register-password" required>
+                            <small class="form-text">Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule et un chiffre.</small>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">S'inscrire</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Vérifier si l'utilisateur est déjà connecté
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (currentUser) {
+                // Rediriger vers le dashboard si déjà connecté
+                window.location.href = 'dashboard-home.html';
+            }
+            
+            // Script pour ouvrir le modal d'inscription depuis le modal de connexion
+            window.openRegisterModal = function() {
+                // Fermer le modal de connexion
+                const loginModal = bootstrap.Modal.getInstance(document.getElementById('loginModal'));
+                loginModal.hide();
+                
+                // Ouvrir le modal d'inscription
+                setTimeout(() => {
+                    const registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
+                    registerModal.show();
+                }, 400);
+            };
+        });
+    </script>
+
+    <script src="js/platforms.js"></script>
+</body>
+</html> 

@@ -1,0 +1,954 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0">
+    <title>Accueil - 𝔻𝕖𝕧-𝕥𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕢𝕦𝕖|</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/dashboard-home.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation - Structure améliorée -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand text-truncate" href="#" title="Dev-thèque Afrique">
+                <span class="title-text">𝔻𝕖𝕧-𝕥𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕢𝕦𝕖|</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" href="#projets">Projets</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#formation">Formation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#evenements">Événements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#opportunites">Opportunités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="bibliotheque.html">Bibliothèque</a></li>
+                    <li class="nav-item"><a class="nav-link" href="communaute.html">Communauté</a></li>
+                </ul>
+                <div class="user-menu d-flex align-items-center">
+                    <div class="points-badge me-2">
+                        <i class="fas fa-coins"></i>
+                        <span class="points-count">0</span>
+                        <button class="btn btn-sm btn-add-points" data-bs-toggle="modal" data-bs-target="#addPointsModal">
+                            <i class="fas fa-plus-circle"></i>
+                        </button>
+                    </div>
+                    <a href="dashboard.html" class="btn btn-dashboard">
+                        <i class="fas fa-columns"></i> <span class="d-none d-md-inline">Tableau de bord</span>
+                    </a>
+                </div>
+                <div class="navbar-nav ms-auto">
+                    <div class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="notificationsDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-bell"></i>
+                            <span class="badge bg-danger notification-badge" id="notificationBadge"></span>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-end notification-dropdown" aria-labelledby="notificationsDropdown">
+                            <div class="notification-header d-flex justify-content-between align-items-center">
+                                <h6 class="mb-0">Notifications</h6>
+                                <button class="btn btn-sm btn-link" id="markAllAsRead">Tout marquer comme lu</button>
+                            </div>
+                            <div class="notification-list" id="notificationList">
+                                <div class="text-center py-3" id="noNotifications">
+                                    <p class="text-muted">Aucune notification</p>
+                                </div>
+                                <!-- Les notifications seront insérées ici dynamiquement -->
+                            </div>
+                            <div class="notification-footer">
+                                <a href="notifications.html" class="btn btn-sm btn-primary w-100">Voir toutes les notifications</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero - En-tête améliorée -->
+    <header class="dashboard-header">
+        <div class="container">
+            <div class="welcome-section">
+                <h1 class="text-truncate">Bienvenue sur 𝔻𝕖𝕧-𝕥𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕢𝕦𝕖|</h1>
+                <p class="lead">Votre plateforme pour l'apprentissage et le développement technologique en Afrique</p>
+            </div>
+            <div class="quick-stats">
+                <div class="stat-item">
+                    <i class="fas fa-book-reader"></i>
+                    <h4>500+</h4>
+                    <p>Ressources</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4>50+</h4>
+                    <p>Formations</p>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-project-diagram"></i>
+                    <h4>100+</h4>
+                    <p>Projets</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section À la une -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title d-flex align-items-center">
+                <i class="fas fa-star me-2"></i>
+                <span class="text-truncate">À la une</span>
+            </h2>
+            <div class="featured-grid">
+                <div class="featured-card">
+                    <div class="card-badge">Populaire</div>
+                    <h3>Guide complet du développement web</h3>
+                    <p>Apprenez les technologies web modernes de A à Z</p>
+                    <div class="card-meta">
+                        <span><i class="fas fa-download"></i> 3254 téléchargements</span>
+                        <span><i class="fas fa-star"></i> 4.9/5</span>
+                    </div>
+                    <a href="bibliotheque.html#dev-web" class="btn btn-primary">Explorer</a>
+                </div>
+                <div class="featured-card">
+                    <div class="card-badge">Nouveau</div>
+                    <h3>Introduction à l'Intelligence Artificielle</h3>
+                    <p>Découvrez les concepts fondamentaux de l'IA</p>
+                    <div class="card-meta">
+                        <span><i class="fas fa-download"></i> 1542 téléchargements</span>
+                        <span><i class="fas fa-star"></i> 4.7/5</span>
+                    </div>
+                    <a href="bibliotheque.html#ai" class="btn btn-primary">Explorer</a>
+                </div>
+                <div class="featured-card">
+                    <div class="card-badge">Tendance</div>
+                    <h3>Développement mobile avec Flutter</h3>
+                    <p>Créez des applications multiplateformes</p>
+                    <div class="card-meta">
+                        <span><i class="fas fa-download"></i> 2187 téléchargements</span>
+                        <span><i class="fas fa-star"></i> 4.8/5</span>
+                    </div>
+                    <a href="bibliotheque.html#mobile" class="btn btn-primary">Explorer</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Catégories populaires -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title d-flex align-items-center">
+                <i class="fas fa-th-large me-2"></i>
+                <span class="text-truncate">Catégories populaires</span>
+            </h2>
+            <div class="categories-grid">
+                <a href="bibliotheque.html#web" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Développement Web</h3>
+                    <p>HTML, CSS, JavaScript, PHP, NodeJS</p>
+                </a>
+                <a href="bibliotheque.html#mobile" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Développement Mobile</h3>
+                    <p>Android, iOS, Flutter, React Native</p>
+                </a>
+                <a href="bibliotheque.html#ai" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Intelligence Artificielle</h3>
+                    <p>Machine Learning, Deep Learning, NLP</p>
+                </a>
+                <a href="bibliotheque.html#cloud" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-cloud"></i>
+                    </div>
+                    <h3>Cloud Computing</h3>
+                    <p>AWS, Azure, Google Cloud, DevOps</p>
+                </a>
+                <a href="bibliotheque.html#data" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Science des Données</h3>
+                    <p>SQL, Python, R, Visualisation</p>
+                </a>
+                <a href="bibliotheque.html#cybersec" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersécurité</h3>
+                    <p>Sécurité réseaux, Cryptographie, Pentesting</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Événements à venir -->
+    <section class="upcoming-events">
+        <div class="container">
+            <h2 class="section-title d-flex align-items-center">
+                <i class="fas fa-calendar-alt me-2"></i>
+                <span class="text-truncate">Événements à venir</span>
+            </h2>
+            <div class="events-grid">
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">15</span>
+                        <span class="month">Juin</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Hackathon IA pour l'Afrique</h3>
+                        <p>Développez des solutions innovantes avec l'IA pour résoudre des problèmes africains</p>
+                        <a href="#evenements" class="btn btn-primary">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">22</span>
+                        <span class="month">Juin</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Webinaire: Carrières Tech en Afrique</h3>
+                        <p>Découvrez les opportunités dans le secteur technologique africain</p>
+                        <a href="#evenements" class="btn btn-primary">En savoir plus</a>
+                    </div>
+                </div>
+                <div class="event-card">
+                    <div class="event-date">
+                        <span class="day">10</span>
+                        <span class="month">Juil</span>
+                    </div>
+                    <div class="event-details">
+                        <h3>Atelier Blockchain</h3>
+                        <p>Apprenez à développer des applications décentralisées</p>
+                        <a href="#evenements" class="btn btn-primary">En savoir plus</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Démarrez votre parcours d'apprentissage dès aujourd'hui</h2>
+                <p>Accédez à notre vaste bibliothèque de ressources pour développer vos compétences en technologie</p>
+                <div class="cta-buttons">
+                    <a href="bibliotheque.html" class="btn btn-primary btn-lg">
+                        <i class="fas fa-book"></i> Explorer la bibliothèque
+                    </a>
+                    <a href="dashboard.html" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-columns"></i> Aller au tableau de bord
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Communauté - Version améliorée -->
+    <section class="community-preview-section">
+        <div class="container">
+            <div class="section-header d-flex justify-content-between align-items-center mb-4">
+                <h2 class="m-0"><i class="fas fa-users me-2"></i><span class="text-truncate">Communauté</span></h2>
+                <a href="communaute.html" class="btn btn-outline-primary btn-sm">
+                    <i class="fas fa-external-link-alt"></i> <span class="d-none d-md-inline">Tout explorer</span>
+                </a>
+            </div>
+            
+            <!-- Statistiques communautaires -->
+            <div class="community-stats mb-4">
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <div class="stats-card h-100">
+                            <i class="fas fa-file-upload"></i>
+                            <h3 id="totalUploads" class="counter">287</h3>
+                            <p class="mb-0">Fichiers partagés</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-card h-100">
+                            <i class="fas fa-download"></i>
+                            <h3 id="totalDownloads" class="counter">1.8k</h3>
+                            <p class="mb-0">Téléchargements</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-card h-100">
+                            <i class="fas fa-question-circle"></i>
+                            <h3 id="totalQuestions" class="counter">342</h3>
+                            <p class="mb-0">Questions posées</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="stats-card h-100">
+                            <i class="fas fa-users"></i>
+                            <h3 id="activeUsers" class="counter">129</h3>
+                            <p class="mb-0">Contributeurs actifs</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Aperçu des contributions récentes - Mise à jour -->
+            <div class="recent-contributions mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="m-0 d-flex align-items-center">
+                        <i class="fas fa-star me-2"></i>
+                        <span class="text-truncate">Contributions populaires</span>
+                    </h4>
+                    <div class="contributions-filter">
+                        <select class="form-select form-select-sm" id="contributionsFilter">
+                            <option value="popular">Plus populaires</option>
+                            <option value="recent">Plus récentes</option>
+                            <option value="downloads">Plus téléchargées</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="contributions-wrapper">
+                    <div class="contributions-slider">
+                        <div class="contribution-item">
+                            <div class="contribution-type">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="contribution-info">
+                                <h5>Guide Docker Complet</h5>
+                                <div class="contribution-category">
+                                    <span class="category-badge">DevOps</span>
+                                </div>
+                                <p>Par <strong>MoussaK</strong></p>
+                                <div class="meta">
+                                    <span><i class="fas fa-download"></i> 28</span>
+                                    <span><i class="fas fa-star"></i> 4.7</span>
+                                    <span><i class="fas fa-coins"></i> 120</span>
+                                </div>
+                            </div>
+                            <a href="communaute.html#file-123" class="stretched-link" aria-label="Voir le document"></a>
+                        </div>
+                        
+                        <div class="contribution-item">
+                            <div class="contribution-type">
+                                <i class="fas fa-file-code"></i>
+                            </div>
+                            <div class="contribution-info">
+                                <h5>Projet Django Starter</h5>
+                                <div class="contribution-category">
+                                    <span class="category-badge">Backend</span>
+                                </div>
+                                <p>Par <strong>AminataS</strong></p>
+                                <div class="meta">
+                                    <span><i class="fas fa-download"></i> 47</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span><i class="fas fa-coins"></i> 75</span>
+                                </div>
+                            </div>
+                            <a href="communaute.html#file-456" class="stretched-link" aria-label="Voir le document"></a>
+                        </div>
+                        
+                        <div class="contribution-item">
+                            <div class="contribution-type question">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div class="contribution-info">
+                                <h5>Installation React Native</h5>
+                                <div class="contribution-category">
+                                    <span class="category-badge">Mobile</span>
+                                </div>
+                                <p>Par <strong>KoffiT</strong></p>
+                                <div class="meta">
+                                    <span><i class="fas fa-reply"></i> 5 réponses</span>
+                                    <span><i class="fas fa-check-circle"></i> Résolue</span>
+                                </div>
+                            </div>
+                            <a href="communaute.html#question-789" class="stretched-link" aria-label="Voir la question"></a>
+                        </div>
+                        
+                        <div class="contribution-item">
+                            <div class="contribution-type">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div class="contribution-info">
+                                <h5>Tutorial GraphQL API</h5>
+                                <div class="contribution-category">
+                                    <span class="category-badge">API</span>
+                                </div>
+                                <p>Par <strong>FatouD</strong></p>
+                                <div class="meta">
+                                    <span><i class="fas fa-download"></i> 36</span>
+                                    <span><i class="fas fa-star"></i> 4.8</span>
+                                    <span><i class="fas fa-coins"></i> 150</span>
+                                </div>
+                            </div>
+                            <a href="communaute.html#file-321" class="stretched-link" aria-label="Voir le document"></a>
+                        </div>
+                        
+                        <div class="contribution-item">
+                            <div class="contribution-type question">
+                                <i class="fas fa-question"></i>
+                            </div>
+                            <div class="contribution-info">
+                                <h5>Configuration SSL Ubuntu</h5>
+                                <div class="contribution-category">
+                                    <span class="category-badge">Sécurité</span>
+                                </div>
+                                <p>Par <strong>YaoC</strong></p>
+                                <div class="meta">
+                                    <span><i class="fas fa-reply"></i> 3 réponses</span>
+                                    <span><i class="fas fa-check-circle"></i> Résolue</span>
+                                </div>
+                            </div>
+                            <a href="communaute.html#question-654" class="stretched-link" aria-label="Voir la question"></a>
+                        </div>
+                        
+                        <div class="contribution-item">
+                            <div class="contribution-type">
+                                <i class="fas fa-file-powerpoint"></i>
+                            </div>
+                            <div class="contribution-info">
+                                <h5>Présentation NoSQL</h5>
+                                <div class="contribution-category">
+                                    <span class="category-badge">Base de données</span>
+                                </div>
+                                <p>Par <strong>OlivierM</strong></p>
+                                <div class="meta">
+                                    <span><i class="fas fa-download"></i> 22</span>
+                                    <span><i class="fas fa-star"></i> 4.6</span>
+                                    <span><i class="fas fa-coins"></i> 80</span>
+                                </div>
+                            </div>
+                            <a href="communaute.html#file-987" class="stretched-link" aria-label="Voir le document"></a>
+                        </div>
+                    </div>
+                    
+                    <button class="slider-control prev" aria-label="Précédent">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-control next" aria-label="Suivant">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Actions communautaires -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="community-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-file-upload"></i> Partagez et gagnez</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Uploadez vos documents et gagnez des points à chaque téléchargement !</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Gagnez 50 points par téléchargement</li>
+                                <li><i class="fas fa-check-circle"></i> Partagez vos connaissances</li>
+                                <li><i class="fas fa-check-circle"></i> Contribuez à la communauté africaine</li>
+                            </ul>
+                            <div class="d-grid gap-2 mt-3">
+                                <a href="communaute.html#files" class="btn btn-primary">
+                                    <i class="fas fa-upload"></i> Uploader un fichier
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-6">
+                    <div class="community-card">
+                        <div class="card-header">
+                            <h3><i class="fas fa-question-circle"></i> Questions & Réponses</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="mb-3">Besoin d'aide ? Posez vos questions et obtenez des réponses d'experts !</p>
+                            <ul class="feature-list">
+                                <li><i class="fas fa-check-circle"></i> Obtenez de l'aide sur vos projets</li>
+                                <li><i class="fas fa-check-circle"></i> Posez des questions sur les documents partagés</li>
+                                <li><i class="fas fa-check-circle"></i> Rejoignez une communauté active</li>
+                            </ul>
+                            <div class="d-grid gap-2 mt-3">
+                                <a href="communaute.html#questions" class="btn btn-primary">
+                                    <i class="fas fa-question"></i> Poser une question
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouveauté : Technologies tendances dans la communauté -->
+            <div class="trending-tech mt-4">
+                <h4 class="d-flex align-items-center mb-3">
+                    <i class="fas fa-chart-line me-2"></i>
+                    <span class="text-truncate">Technologies tendances</span>
+                </h4>
+                <div class="tech-tags">
+                    <span class="tech-tag"><i class="fab fa-react"></i> React</span>
+                    <span class="tech-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="tech-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="tech-tag"><i class="fas fa-database"></i> MongoDB</span>
+                    <span class="tech-tag"><i class="fas fa-mobile-alt"></i> Flutter</span>
+                    <span class="tech-tag"><i class="fas fa-brain"></i> Machine Learning</span>
+                    <span class="tech-tag"><i class="fab fa-aws"></i> AWS</span>
+                    <span class="tech-tag"><i class="fas fa-lock"></i> Cybersécurité</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="dashboard-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>𝔻𝕖𝕧-𝕥𝕙𝕖𝕢𝕦𝕖_𝔸𝕗𝕣𝕚𝕢𝕦𝕖|</h5>
+                    <p>Plateforme de collaboration technologique pour l'Afrique</p>
+                </div>
+                <div class="col-md-4 text-center">
+                    <h5>Créé par</h5>
+                    <div class="creator-container">
+                        <p class="creator-name">𝕄𝔸𝕂𝕆ℝ𝔸</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-end">
+                    <h5>Liens rapides</h5>
+                    <div class="quick-links">
+                        <a href="#" data-platform="SUPPORT_EMAIL">Support</a>
+                        <a href="#" data-platform="WIKI_URL">Documentation</a>
+                        <a href="communaute.html">Communauté</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal d'ajout de points -->
+    <div class="modal fade" id="addPointsModal" tabindex="-1" aria-labelledby="addPointsModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addPointsModalLabel">Obtenir des points</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul class="nav nav-tabs mb-4" id="pointsTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="purchase-tab" data-bs-toggle="tab" data-bs-target="#purchase" type="button" role="tab" aria-selected="true">
+                                <i class="fas fa-shopping-cart"></i> Acheter des points
+                            </button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="free-tab" data-bs-toggle="tab" data-bs-target="#free" type="button" role="tab" aria-selected="false">
+                                <i class="fas fa-gift"></i> Points gratuits
+                            </button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="pointsTabContent">
+                        <!-- Onglet d'achat de points -->
+                        <div class="tab-pane fade show active" id="purchase" role="tabpanel" aria-labelledby="purchase-tab">
+                            <div class="points-packages">
+                                <div class="package-card" data-value="500">
+                                    <div class="package-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="package-details">
+                                        <h4>500 Points</h4>
+                                        <p class="package-price">5 €</p>
+                                    </div>
+                                </div>
+                                <div class="package-card" data-value="1000">
+                                    <div class="package-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="package-details">
+                                        <h4>1000 Points</h4>
+                                        <p class="package-price">9 €</p>
+                                        <span class="package-badge">Populaire</span>
+                                    </div>
+                                </div>
+                                <div class="package-card" data-value="2500">
+                                    <div class="package-icon">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div class="package-details">
+                                        <h4>2500 Points</h4>
+                                        <p class="package-price">20 €</p>
+                                        <span class="package-badge">-20%</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="payment-methods mt-4">
+                                <h5>Méthode de paiement</h5>
+                                <div class="payment-tabs">
+                                    <ul class="nav nav-tabs" id="paymentTabs" role="tablist">
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link active" id="card-tab" data-bs-toggle="tab" data-bs-target="#card" type="button" role="tab" aria-controls="card" aria-selected="true">
+                                                <i class="fas fa-credit-card"></i> Carte bancaire
+                                            </button>
+                                        </li>
+                                        <li class="nav-item" role="presentation">
+                                            <button class="nav-link" id="mobile-tab" data-bs-toggle="tab" data-bs-target="#mobile" type="button" role="tab" aria-controls="mobile" aria-selected="false">
+                                                <i class="fas fa-mobile-alt"></i> Mobile Money
+                                            </button>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content" id="paymentTabsContent">
+                                        <div class="tab-pane fade show active" id="card" role="tabpanel" aria-labelledby="card-tab">
+                                            <form class="payment-form">
+                                                <div class="mb-3">
+                                                    <label for="cardNumber" class="form-label">Numéro de carte</label>
+                                                    <input type="text" class="form-control" id="cardNumber" placeholder="1234 5678 9012 3456">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="expiryDate" class="form-label">Date d'expiration</label>
+                                                        <input type="text" class="form-control" id="expiryDate" placeholder="MM/AA">
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <label for="cvv" class="form-label">CVV</label>
+                                                        <input type="text" class="form-control" id="cvv" placeholder="123">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="cardName" class="form-label">Nom sur la carte</label>
+                                                    <input type="text" class="form-control" id="cardName">
+                                                </div>
+                                            </form>
+                                            <div class="payment-cards">
+                                                <img src="images/visa.png" alt="Visa">
+                                                <img src="images/mastercard.png" alt="Mastercard">
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane fade" id="mobile" role="tabpanel" aria-labelledby="mobile-tab">
+                                            <form class="payment-form">
+                                                <div class="mb-3">
+                                                    <label for="phoneNumber" class="form-label">Numéro de téléphone</label>
+                                                    <div class="input-group">
+                                                        <select class="form-select" id="countryCode" style="max-width: 120px;">
+                                                            <option value="+228">+228 (Togo)</option>
+                                                            <option value="+225">+225 (Côte d'Ivoire)</option>
+                                                            <option value="+221">+221 (Sénégal)</option>
+                                                            <option value="+237">+237 (Cameroun)</option>
+                                                            <option value="+243">+243 (RDC)</option>
+                                                        </select>
+                                                        <input type="text" class="form-control" id="phoneNumber" placeholder="9X XX XX XX">
+                                                    </div>
+                                                </div>
+                                                <div class="mb-3">
+                                                    <label for="mobileProvider" class="form-label">Fournisseur</label>
+                                                    <select class="form-select" id="mobileProvider">
+                                                        <option value="tmoney">T-Money</option>
+                                                        <option value="moov">Moov Money</option>
+                                                        <option value="orangemoney">Orange Money</option>
+                                                        <option value="mtn">MTN Mobile Money</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                            <div class="payment-providers">
+                                                <img src="images/tmoney.png" alt="T-Money">
+                                                <img src="images/orange-money.png" alt="Orange Money">
+                                                <img src="images/mtn-momo.png" alt="MTN Mobile Money">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="payment-summary mt-3">
+                                <div class="summary-text">Total: <span id="payment-total">9 €</span></div>
+                                <div class="summary-points">Vous recevrez: <span id="points-total">1000 points</span></div>
+                            </div>
+                            <div class="d-grid gap-2 mt-3">
+                                <button type="button" class="btn btn-primary btn-payment">
+                                    <i class="fas fa-shopping-cart me-2"></i> Payer maintenant
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <!-- Onglet des points gratuits -->
+                        <div class="tab-pane fade" id="free" role="tabpanel" aria-labelledby="free-tab">
+                            <div class="free-points-section">
+                                <div class="section-header text-center mb-4">
+                                    <h4><i class="fas fa-gift"></i> Gagnez des points gratuitement</h4>
+                                    <p>Suivez-nous sur les réseaux sociaux et gagnez jusqu'à 500 points !</p>
+                                </div>
+                                
+                                <div class="social-tasks">
+                                    <div class="task-card" data-task="youtube">
+                                        <div class="task-icon">
+                                            <i class="fab fa-youtube"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h4>YouTube</h4>
+                                            <p>Abonnez-vous à notre chaîne</p>
+                                            <span class="points-reward">+100 points</span>
+                                        </div>
+                                        <button class="btn btn-outline-primary task-button" data-points="100" data-platform="YOUTUBE_SUBSCRIBE_URL">
+                                            <i class="fas fa-external-link-alt"></i> S'abonner
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="task-card" data-task="twitter">
+                                        <div class="task-icon">
+                                            <i class="fab fa-twitter"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h4>Twitter</h4>
+                                            <p>Suivez notre compte</p>
+                                            <span class="points-reward">+100 points</span>
+                                        </div>
+                                        <button class="btn btn-outline-primary task-button" data-points="100" data-platform="TWITTER_URL">
+                                            <i class="fas fa-external-link-alt"></i> Suivre
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="task-card" data-task="instagram">
+                                        <div class="task-icon">
+                                            <i class="fab fa-instagram"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h4>Instagram</h4>
+                                            <p>Suivez notre compte</p>
+                                            <span class="points-reward">+100 points</span>
+                                        </div>
+                                        <button class="btn btn-outline-primary task-button" data-points="100" data-platform="INSTAGRAM_URL">
+                                            <i class="fas fa-external-link-alt"></i> Suivre
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="task-card" data-task="telegram">
+                                        <div class="task-icon">
+                                            <i class="fab fa-telegram"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h4>Telegram</h4>
+                                            <p>Rejoignez notre groupe</p>
+                                            <span class="points-reward">+100 points</span>
+                                        </div>
+                                        <button class="btn btn-outline-primary task-button" data-points="100" data-platform="TELEGRAM_GROUP_URL">
+                                            <i class="fas fa-external-link-alt"></i> Rejoindre
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="task-card special" data-task="whatsapp">
+                                        <div class="task-icon">
+                                            <i class="fab fa-whatsapp"></i>
+                                        </div>
+                                        <div class="task-details">
+                                            <h4>WhatsApp</h4>
+                                            <p>Rejoignez notre groupe</p>
+                                            <span class="points-reward">+100 points</span>
+                                        </div>
+                                        <button class="btn btn-outline-primary task-button" data-points="100" data-platform="WHATSAPP_GROUP_INVITE">
+                                            <i class="fas fa-external-link-alt"></i> Rejoindre
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <div class="free-points-info mt-4">
+                                    <div class="alert alert-info">
+                                        <i class="fas fa-info-circle"></i> Une fois que vous avez rejoint un réseau social, cliquez sur le bouton correspondant pour recevoir vos points. Notre système vérifiera votre abonnement.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'achat de document -->
+    <div class="modal fade" id="purchaseDocModal" tabindex="-1" aria-labelledby="purchaseDocModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseDocModalLabel">Télécharger le document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="purchase-doc-details">
+                        <div class="doc-preview">
+                            <i class="fas fa-file-pdf doc-icon"></i>
+                            <div class="doc-preview-info">
+                                <h4 id="doc-title">Guide Complet Python</h4>
+                                <div class="doc-meta-preview">
+                                    <span><i class="fas fa-user"></i> <span id="doc-author">MAKORA</span></span>
+                                    <span><i class="fas fa-star"></i> <span id="doc-rating">4.8</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="purchase-price-info">
+                            <div class="price-tag">
+                                <i class="fas fa-coins"></i> <span id="doc-points">50</span> points
+                            </div>
+                            <div class="user-balance">
+                                Votre solde: <span class="points-count">0</span> points
+                            </div>
+                        </div>
+                        
+                        <div class="purchase-benefits">
+                            <h5>Avantages de ce document</h5>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Format PDF de haute qualité</li>
+                                <li><i class="fas fa-check-circle"></i> Exercices pratiques inclus</li>
+                                <li><i class="fas fa-check-circle"></i> Accès permanent</li>
+                                <li><i class="fas fa-check-circle"></i> Mis à jour régulièrement</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="insufficient-funds" class="alert alert-warning" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Solde insuffisant. <a href="#" data-bs-toggle="modal" data-bs-target="#addPointsModal" data-bs-dismiss="modal">Ajouter des points</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary btn-purchase-doc">
+                        <i class="fas fa-download me-2"></i> Télécharger maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal d'inscription à un cours -->
+    <div class="modal fade" id="enrollCourseModal" tabindex="-1" aria-labelledby="enrollCourseModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="enrollCourseModalLabel">S'inscrire au cours</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="enroll-course-details">
+                        <div class="course-preview">
+                            <i class="fas fa-graduation-cap course-icon"></i>
+                            <div class="course-preview-info">
+                                <h4 id="course-title">Formation complète en développement web</h4>
+                                <div class="course-meta-preview">
+                                    <span><i class="fas fa-user"></i> <span id="course-instructor">MAKORA</span></span>
+                                    <span><i class="fas fa-star"></i> <span id="course-rating">4.9</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="course-price-info">
+                            <div class="price-tag">
+                                <i class="fas fa-coins"></i> <span id="course-points">200</span> points
+                            </div>
+                            <div class="user-balance">
+                                Votre solde: <span class="points-count">0</span> points
+                            </div>
+                        </div>
+                        
+                        <div class="course-benefits">
+                            <h5>Ce que vous obtiendrez</h5>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Accès à vie au cours</li>
+                                <li><i class="fas fa-check-circle"></i> Projets pratiques inclus</li>
+                                <li><i class="fas fa-check-circle"></i> Certificat de réussite</li>
+                                <li><i class="fas fa-check-circle"></i> Support par email</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="insufficient-funds-course" class="alert alert-warning" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Solde insuffisant. <a href="#" data-bs-toggle="modal" data-bs-target="#addPointsModal" data-bs-dismiss="modal">Ajouter des points</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary btn-enroll-course">
+                        <i class="fas fa-graduation-cap me-2"></i> S'inscrire maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajout du modal d'upload des fichiers de la communauté -->
+    <div class="modal fade" id="quickUploadModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="fas fa-upload"></i> Partager un fichier</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="quickUploadForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="quickFileTitle" class="form-label">Titre du fichier *</label>
+                            <input type="text" class="form-control" id="quickFileTitle" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quickFileDescription" class="form-label">Description *</label>
+                            <textarea class="form-control" id="quickFileDescription" rows="3" required></textarea>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="quickFileCategory" class="form-label">Catégorie *</label>
+                                    <select class="form-select" id="quickFileCategory" required>
+                                        <option value="">Choisir une catégorie</option>
+                                        <option value="development">Développement</option>
+                                        <option value="design">Design</option>
+                                        <option value="data">Science des données</option>
+                                        <option value="ai">Intelligence artificielle</option>
+                                        <option value="systems">Systèmes</option>
+                                        <option value="networks">Réseaux</option>
+                                        <option value="other">Autres</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="quickRequestedPoints" class="form-label">Points demandés *</label>
+                                    <input type="number" class="form-control" id="quickRequestedPoints" min="0" max="1000" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="quickFileUpload" class="form-label">Fichier *</label>
+                            <input class="form-control" type="file" id="quickFileUpload" required>
+                            <small class="text-muted">Formats acceptés: PDF, DOCX, PPTX, ZIP, RAR, TXT, etc. (Max: 50MB)</small>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input type="checkbox" class="form-check-input" id="quickTermsCheck" required>
+                            <label class="form-check-label" for="quickTermsCheck">
+                                Je confirme être l'auteur de ce fichier ou avoir les droits nécessaires pour le partager
+                            </label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary" id="submitQuickUpload">
+                        <i class="fas fa-upload"></i> Envoyer pour validation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/dashboard-home.js"></script>
+    <script src="js/points.js"></script>
+    <script src="js/purchase.js"></script>
+    <script src="js/payment.js"></script>
+    <script src="js/communaute.js"></script>
+    <script src="js/upload.js"></script>
+    <script src="js/questions.js"></script>
+    <script src="js/responsive.js"></script>
+    <script src="js/platforms.js"></script>
+</body>
+</html> 

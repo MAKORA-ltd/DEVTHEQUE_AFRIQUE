@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bibliothèque - Dev-theque_Afrique</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/bibliotheque.css" rel="stylesheet">
+</head>
+<body>
+    <div class="bibliotheque-container">
+        <!-- Barre de navigation supérieure -->
+        <nav class="top-nav">
+            <div class="container-fluid">
+                <div class="nav-wrapper d-flex justify-content-between align-items-center">
+                    <div class="nav-left d-flex align-items-center">
+                        <a href="dashboard-home.html" class="nav-brand">
+                            <i class="fas fa-book-reader me-2"></i>
+                            <span class="brand-text">Dev-thèque Afrique</span>
+                        </a>
+                        
+                        <!-- Fil d'Ariane intégré dans la barre de navigation -->
+                        <div class="breadcrumb-nav d-none d-md-flex">
+                            <div class="breadcrumb-item">
+                                <i class="fas fa-angle-right mx-2"></i>
+                                <span>Bibliothèque</span>
+                            </div>
+                            <div class="breadcrumb-item category-name">
+                                <i class="fas fa-angle-right mx-2"></i>
+                                <span id="currentCategory">Programmation</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="nav-right d-flex align-items-center">
+                        <!-- Bouton de recherche mobile qui ouvre la barre de recherche -->
+                        <button class="btn-search-toggle d-md-none me-3">
+                            <i class="fas fa-search"></i>
+                        </button>
+                        
+                        <!-- Points de l'utilisateur -->
+                        <div class="user-points me-3 d-none d-sm-flex align-items-center">
+                            <i class="fas fa-coins text-warning"></i>
+                            <span class="points-count ms-1">250</span>
+                        </div>
+                        
+                        <!-- Menu utilisateur amélioré -->
+                        <div class="user-menu dropdown">
+                            <a href="#" class="dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img src="images/avatar-default.png" alt="Profile" class="user-avatar">
+                                <span class="d-none d-lg-inline-block ms-2">Mon compte</span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="profile.html"><i class="fas fa-user me-2"></i> Mon profil</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-bookmark me-2"></i> Favoris</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-history me-2"></i> Historique</a></li>
+                                <li><a class="dropdown-item" href="#"><i class="fas fa-cog me-2"></i> Paramètres</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item text-danger" href="#"><i class="fas fa-sign-out-alt me-2"></i> Déconnexion</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Ajouter une barre de recherche responsive qui s'affiche en pleine largeur sur mobile -->
+        <div class="search-container">
+            <div class="container-fluid">
+                <div class="search-section">
+                    <div class="search-bar">
+                        <div class="search-input-group">
+                            <i class="fas fa-search search-icon"></i>
+                            <input type="text" placeholder="Rechercher une documentation..." class="enhanced-search" id="librarySearch">
+                            <button type="button" class="btn-clear-search" id="clearSearch" style="display: none;">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                        <div class="advanced-filters">
+                            <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#advancedSearchModal">
+                                <i class="fas fa-sliders-h d-inline-block d-md-none"></i>
+                                <span class="d-none d-md-inline-block">Filtres avancés</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Suggestions de recherche (à afficher dynamiquement) -->
+                    <div class="search-suggestions" id="searchSuggestions" style="display: none;">
+                        <div class="suggestion-group">
+                            <h6>Documents populaires</h6>
+                            <a href="#" class="suggestion-item">
+                                <i class="fas fa-file-pdf"></i>
+                                Guide Python Avancé
+                            </a>
+                            <a href="#" class="suggestion-item">
+                                <i class="fas fa-file-code"></i>
+                                Architecture Microservices
+                            </a>
+                        </div>
+                        <div class="suggestion-group">
+                            <h6>Recherches récentes</h6>
+                            <a href="#" class="suggestion-item">
+                                <i class="fas fa-history"></i>
+                                Machine Learning
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bannière de statistiques responsive -->
+        <div class="stats-banner">
+            <div class="stat-item">
+                <i class="fas fa-book"></i>
+                <span class="stat-number">1,234</span>
+                <span class="stat-label">Documents</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-users"></i>
+                <span class="stat-number">5,678</span>
+                <span class="stat-label">Utilisateurs</span>
+            </div>
+            <div class="stat-item">
+                <i class="fas fa-download"></i>
+                <span class="stat-number">10,234</span>
+                <span class="stat-label">Téléchargements</span>
+            </div>
+        </div>
+
+        <!-- Fil d'Ariane mobile qui s'affiche uniquement sur petit écran -->
+        <div class="mobile-breadcrumb d-md-none">
+            <div class="container-fluid">
+                <div class="breadcrumb">
+                    <div class="breadcrumb-item">
+                        <i class="fas fa-home"></i>
+                        <span>Bibliothèque</span>
+                    </div>
+                    <div class="breadcrumb-item category-name">
+                        <span id="mobileCurrentCategory">Programmation</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barre latérale des catégories -->
+        <div class="categories-sidebar">
+            <div class="categories-header">
+                <h3>Catégories</h3>
+            </div>
+            <nav class="categories-nav">
+                <ul>
+                    <li class="category-item active" data-category="programmation">
+                        <i class="fas fa-code"></i>
+                        <span>Programmation</span>
+                        <ul class="subcategories">
+                            <li data-subcategory="web">Développement Web</li>
+                            <li data-subcategory="mobile">Développement Mobile</li>
+                            <li data-subcategory="desktop">Applications Desktop</li>
+                            <li data-subcategory="algorithms">Algorithmes & Structures</li>
+                        </ul>
+                    </li>
+                    <li class="category-item" data-category="ia">
+                        <i class="fas fa-brain"></i>
+                        <span>Intelligence Artificielle</span>
+                        <ul class="subcategories">
+                            <li data-subcategory="ml">
+                                <a href="ia.html#machine-learning" class="subcategory-link">Machine Learning</a>
+                            </li>
+                            <li data-subcategory="dl">
+                                <a href="ia.html#deep-learning" class="subcategory-link">Deep Learning</a>
+                            </li>
+                            <li data-subcategory="nlp">
+                                <a href="ia.html#nlp" class="subcategory-link">NLP</a>
+                            </li>
+                            <li data-subcategory="cv">
+                                <a href="ia.html#computer-vision" class="subcategory-link">Computer Vision</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category-item" data-category="cybersecurity">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Cybersécurité</span>
+                        <ul class="subcategories">
+                            <li data-subcategory="network">
+                                <a href="#network-security" class="subcategory-link">Sécurité Réseau</a>
+                            </li>
+                            <li data-subcategory="web-security">
+                                <a href="#web-security" class="subcategory-link">Sécurité Web</a>
+                            </li>
+                            <li data-subcategory="crypto">
+                                <a href="#cryptography" class="subcategory-link">Cryptographie</a>
+                            </li>
+                            <li data-subcategory="forensics">
+                                <a href="#digital-forensics" class="subcategory-link">Forensics</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category-item" data-category="database">
+                        <i class="fas fa-database"></i>
+                        <span>Bases de Données</span>
+                        <ul class="subcategories">
+                            <li data-subcategory="sql">
+                                <a href="#sql-databases" class="subcategory-link">SQL</a>
+                            </li>
+                            <li data-subcategory="nosql">
+                                <a href="#nosql-databases" class="subcategory-link">NoSQL</a>
+                            </li>
+                            <li data-subcategory="big-data">
+                                <a href="#big-data" class="subcategory-link">Big Data</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category-item" data-category="devops">
+                        <i class="fas fa-infinity"></i>
+                        <span>DevOps</span>
+                        <ul class="subcategories">
+                            <li data-subcategory="ci-cd">
+                                <a href="#ci-cd" class="subcategory-link">CI/CD</a>
+                            </li>
+                            <li data-subcategory="cloud">
+                                <a href="#cloud-computing" class="subcategory-link">Cloud Computing</a>
+                            </li>
+                            <li data-subcategory="containers">
+                                <a href="#containers" class="subcategory-link">Conteneurisation</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="category-item" data-category="architecture">
+                        <i class="fas fa-sitemap"></i>
+                        <span>Architecture Logicielle</span>
+                        <ul class="subcategories">
+                            <li data-subcategory="patterns">
+                                <a href="#design-patterns" class="subcategory-link">Design Patterns</a>
+                            </li>
+                            <li data-subcategory="microservices">
+                                <a href="#microservices" class="subcategory-link">Microservices</a>
+                            </li>
+                            <li data-subcategory="clean-code">
+                                <a href="#clean-code" class="subcategory-link">Clean Code</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Contenu principal -->
+        <div class="main-content">
+            <!-- Barre de recherche -->
+            <div class="search-section">
+                <div class="search-bar">
+                    <div class="search-input-group">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="text" placeholder="Rechercher une documentation..." class="enhanced-search">
+                        <div class="search-suggestions">
+                            <div class="suggestion-group">
+                                <h6>Documents populaires</h6>
+                                <a href="#" class="suggestion-item">
+                                    <i class="fas fa-file-pdf"></i>
+                                    Guide Python Avancé
+                                </a>
+                                <a href="#" class="suggestion-item">
+                                    <i class="fas fa-file-code"></i>
+                                    Architecture Microservices
+                                </a>
+                            </div>
+                            <div class="suggestion-group">
+                                <h6>Recherches récentes</h6>
+                                <a href="#" class="suggestion-item">
+                                    <i class="fas fa-history"></i>
+                                    Machine Learning
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="advanced-filters">
+                        <button class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#advancedSearchModal">
+                            <i class="fas fa-sliders-h"></i> Filtres avancés
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ajouter après la barre de recherche -->
+            <div class="breadcrumb">
+                <div class="breadcrumb-item">
+                    <i class="fas fa-home"></i>
+                    <span>Bibliothèque</span>
+                </div>
+                <div class="breadcrumb-item category-name">
+                    <span>Programmation</span>
+                </div>
+                <div class="breadcrumb-item subcategory-name">
+                    <span>Développement Web</span>
+                </div>
+            </div>
+
+            <!-- Zone de contenu -->
+            <div class="content-area">
+                <div class="content-header">
+                    <h2 class="section-title"><i class="fas fa-code me-2"></i>Programmation</h2>
+                    <div class="filter-controls d-flex align-items-center gap-2">
+                        <div class="view-options d-none d-md-flex">
+                            <button class="btn btn-outline-primary active">
+                                <i class="fas fa-th-large"></i>
+                            </button>
+                            <button class="btn btn-outline-primary">
+                                <i class="fas fa-list"></i>
+                            </button>
+                        </div>
+                        <div class="sort-option">
+                            <select class="form-select form-select-sm">
+                                <option value="popular">Populaires</option>
+                                <option value="recent">Récents</option>
+                                <option value="rating">Mieux notés</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Grille de documents avec mise en page améliorée -->
+                <div class="documents-grid">
+                    <!-- Exemple de carte document modifiée pour meilleure structure -->
+                    <div class="doc-card" data-id="1" data-title="Guide Complet Python" data-author="MAKORA" data-rating="4.8" data-points="50">
+                        <div class="doc-type">
+                            <i class="fas fa-file-pdf"></i>
+                            <span class="format">PDF</span>
+                        </div>
+                        <div class="doc-content">
+                            <h3 class="text-truncate">Guide Complet Python</h3>
+                            <p>Un guide complet pour maîtriser Python de zéro à expert</p>
+                            <div class="doc-meta d-flex flex-wrap gap-2">
+                                <span class="level">
+                                    <i class="fas fa-signal"></i> Intermédiaire
+                                </span>
+                                <span class="size">
+                                    <i class="fas fa-weight"></i> 15.2 MB
+                                </span>
+                            </div>
+                            <div class="doc-stats d-flex justify-content-between mt-3">
+                                <span><i class="fas fa-download"></i> 1.2k</span>
+                                <span><i class="fas fa-star"></i> 4.8</span>
+                                <span><i class="fas fa-eye"></i> 5.6k</span>
+                            </div>
+                        </div>
+                        <div class="doc-actions mt-3">
+                            <div class="doc-price">
+                                <i class="fas fa-coins"></i> <span class="price-amount">50</span> points
+                            </div>
+                            <button class="btn btn-primary btn-purchase w-100 mt-2" data-bs-toggle="modal" data-bs-target="#purchaseDocModal">
+                                <i class="fas fa-download"></i> Télécharger
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Ajouter d'autres cartes de documents avec la même structure -->
+                </div>
+
+                <!-- Pagination avec espacement égal -->
+                <div class="pagination-section d-flex justify-content-center align-items-center gap-3 mt-4">
+                    <button class="btn btn-outline-primary">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span class="page-number">Page 1 sur 10</span>
+                    <button class="btn btn-outline-primary">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Modifier la section IA dans le contenu principal -->
+            <div class="content-area" id="ia-content" style="display: none;">
+                <!-- En-tête de la section IA -->
+                <header class="ia-header">
+                    <div class="header-content">
+                        <h1><i class="fas fa-brain"></i> Intelligence Artificielle</h1>
+                        <p>Explorez les fondamentaux et les applications avancées de l'IA</p>
+                    </div>
+                </header>
+
+                <!-- Catégories IA -->
+                <section class="categories-section">
+                    <div class="category-grid">
+                        <!-- Machine Learning -->
+                        <div class="category-card" id="machine-learning">
+                            <div class="category-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Machine Learning</h3>
+                                <p>Algorithmes et techniques d'apprentissage automatique</p>
+                                <div class="doc-count">25 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Deep Learning -->
+                        <div class="category-card" id="deep-learning">
+                            <div class="category-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Deep Learning</h3>
+                                <p>Réseaux de neurones et apprentissage profond</p>
+                                <div class="doc-count">18 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- NLP -->
+                        <div class="category-card" id="nlp">
+                            <div class="category-icon">
+                                <i class="fas fa-language"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Traitement du Langage Naturel</h3>
+                                <p>Analyse et compréhension du langage</p>
+                                <div class="doc-count">15 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Computer Vision -->
+                        <div class="category-card" id="computer-vision">
+                            <div class="category-icon">
+                                <i class="fas fa-eye"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Vision par Ordinateur</h3>
+                                <p>Traitement et analyse d'images</p>
+                                <div class="doc-count">20 documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Récents -->
+                <section class="recent-docs">
+                    <h2>Documents Récents</h2>
+                    <div class="docs-grid">
+                        <div class="doc-card featured">
+                            <div class="doc-badge">Nouveau</div>
+                            <div class="doc-content">
+                                <h4>Introduction au Deep Learning</h4>
+                                <p>Guide complet pour débuter avec les réseaux de neurones</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 234</span>
+                                    <span><i class="fas fa-star"></i> 4.8</span>
+                                    <span><i class="fas fa-clock"></i> 2h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Ajouter la section cybersécurité dans le contenu principal -->
+            <div class="content-area" id="cybersecurity-content" style="display: none;">
+                <!-- En-tête de la section Cybersécurité -->
+                <header class="cybersecurity-header">
+                    <div class="header-content">
+                        <h1><i class="fas fa-shield-alt"></i> Cybersécurité</h1>
+                        <p>Explorez les fondamentaux et les techniques avancées de la sécurité informatique</p>
+                    </div>
+                </header>
+
+                <!-- Catégories Cybersécurité -->
+                <section class="categories-section">
+                    <div class="category-grid">
+                        <!-- Sécurité Réseau -->
+                        <div class="category-card" id="network-security">
+                            <div class="category-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Sécurité Réseau</h3>
+                                <p>Protection des infrastructures et communications réseau</p>
+                                <div class="doc-count">30 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Sécurité Web -->
+                        <div class="category-card" id="web-security">
+                            <div class="category-icon">
+                                <i class="fas fa-globe-africa"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Sécurité Web</h3>
+                                <p>Sécurisation des applications et services web</p>
+                                <div class="doc-count">25 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Cryptographie -->
+                        <div class="category-card" id="cryptography">
+                            <div class="category-icon">
+                                <i class="fas fa-key"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Cryptographie</h3>
+                                <p>Techniques de chiffrement et protocoles cryptographiques</p>
+                                <div class="doc-count">20 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Forensics -->
+                        <div class="category-card" id="digital-forensics">
+                            <div class="category-icon">
+                                <i class="fas fa-search"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Digital Forensics</h3>
+                                <p>Analyse et investigation des incidents de sécurité</p>
+                                <div class="doc-count">15 documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Récents en Cybersécurité -->
+                <section class="recent-docs">
+                    <h2>Documents Récents</h2>
+                    <div class="docs-grid">
+                        <!-- Document 1 -->
+                        <div class="doc-card featured">
+                            <div class="doc-badge">Nouveau</div>
+                            <div class="doc-content">
+                                <h4>Guide de Pentesting Web</h4>
+                                <p>Méthodologies et outils pour les tests d'intrusion web</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 456</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span><i class="fas fa-clock"></i> 3h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Document 2 -->
+                        <div class="doc-card">
+                            <div class="doc-content">
+                                <h4>Cryptographie Appliquée</h4>
+                                <p>Implémentation des algorithmes cryptographiques modernes</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 328</span>
+                                    <span><i class="fas fa-star"></i> 4.7</span>
+                                    <span><i class="fas fa-clock"></i> 4h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Ressources Populaires -->
+                <section class="popular-resources">
+                    <h2>Ressources Populaires</h2>
+                    <div class="resources-grid">
+                        <div class="resource-card">
+                            <div class="resource-type"><i class="fas fa-video"></i> Formation</div>
+                            <h4>Sécurité Réseau Avancée</h4>
+                            <p>Formation complète sur la protection des infrastructures</p>
+                            <div class="resource-meta">
+                                <span>15 heures de contenu</span>
+                                <span>4.8 ⭐</span>
+                            </div>
+                        </div>
+                        <div class="resource-card">
+                            <div class="resource-type"><i class="fas fa-book"></i> Guide</div>
+                            <h4>Forensics Digital</h4>
+                            <p>Guide pratique d'investigation numérique</p>
+                            <div class="resource-meta">
+                                <span>200 pages</span>
+                                <span>4.9 ⭐</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section Bases de Données -->
+            <div class="content-area" id="database-content" style="display: none;">
+                <header class="database-header">
+                    <div class="header-content">
+                        <h1><i class="fas fa-database"></i> Bases de Données</h1>
+                        <p>Explorez les systèmes de gestion de données et leurs applications</p>
+                    </div>
+                </header>
+
+                <section class="categories-section">
+                    <div class="category-grid">
+                        <!-- SQL -->
+                        <div class="category-card" id="sql-databases">
+                            <div class="category-icon">
+                                <i class="fas fa-table"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>SQL</h3>
+                                <p>Bases de données relationnelles et langage SQL</p>
+                                <div class="doc-count">35 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- NoSQL -->
+                        <div class="category-card" id="nosql-databases">
+                            <div class="category-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>NoSQL</h3>
+                                <p>Bases de données non relationnelles</p>
+                                <div class="doc-count">28 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Big Data -->
+                        <div class="category-card" id="big-data">
+                            <div class="category-icon">
+                                <i class="fas fa-chart-network"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Big Data</h3>
+                                <p>Traitement et analyse de données massives</p>
+                                <div class="doc-count">22 documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Récents -->
+                <section class="recent-docs">
+                    <!-- ... Documents similaires aux autres sections ... -->
+                </section>
+            </div>
+
+            <!-- Section DevOps -->
+            <div class="content-area" id="devops-content" style="display: none;">
+                <header class="devops-header">
+                    <div class="header-content">
+                        <h1><i class="fas fa-infinity"></i> DevOps</h1>
+                        <p>Découvrez les pratiques et outils de l'approche DevOps</p>
+                    </div>
+                </header>
+
+                <section class="categories-section">
+                    <div class="category-grid">
+                        <!-- CI/CD -->
+                        <div class="category-card" id="ci-cd">
+                            <div class="category-icon">
+                                <i class="fas fa-sync-alt"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>CI/CD</h3>
+                                <p>Intégration et déploiement continus</p>
+                                <div class="doc-count">28 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Cloud Computing -->
+                        <div class="category-card" id="cloud-computing">
+                            <div class="category-icon">
+                                <i class="fas fa-cloud"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Cloud Computing</h3>
+                                <p>Services et architectures cloud</p>
+                                <div class="doc-count">32 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Conteneurisation -->
+                        <div class="category-card" id="containers">
+                            <div class="category-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Conteneurisation</h3>
+                                <p>Docker, Kubernetes et orchestration</p>
+                                <div class="doc-count">25 documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Récents -->
+                <section class="recent-docs">
+                    <h2>Documents Récents</h2>
+                    <div class="docs-grid">
+                        <div class="doc-card featured">
+                            <div class="doc-badge">Nouveau</div>
+                            <div class="doc-content">
+                                <h4>Guide Complet Docker</h4>
+                                <p>Maîtrisez la conteneurisation avec Docker</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 567</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span><i class="fas fa-clock"></i> 5h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-card">
+                            <div class="doc-content">
+                                <h4>AWS en Pratique</h4>
+                                <p>Guide pratique des services AWS</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 423</span>
+                                    <span><i class="fas fa-star"></i> 4.7</span>
+                                    <span><i class="fas fa-clock"></i> 8h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Section Architecture Logicielle -->
+            <div class="content-area" id="architecture-content" style="display: none;">
+                <header class="architecture-header">
+                    <div class="header-content">
+                        <h1><i class="fas fa-sitemap"></i> Architecture Logicielle</h1>
+                        <p>Maîtrisez les patterns et principes de conception logicielle</p>
+                    </div>
+                </header>
+
+                <section class="categories-section">
+                    <div class="category-grid">
+                        <!-- Design Patterns -->
+                        <div class="category-card" id="design-patterns">
+                            <div class="category-icon">
+                                <i class="fas fa-puzzle-piece"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Design Patterns</h3>
+                                <p>Modèles de conception logicielle</p>
+                                <div class="doc-count">40 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Microservices -->
+                        <div class="category-card" id="microservices">
+                            <div class="category-icon">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Microservices</h3>
+                                <p>Architecture et implémentation</p>
+                                <div class="doc-count">35 documents</div>
+                            </div>
+                        </div>
+
+                        <!-- Clean Code -->
+                        <div class="category-card" id="clean-code">
+                            <div class="category-icon">
+                                <i class="fas fa-code"></i>
+                            </div>
+                            <div class="category-info">
+                                <h3>Clean Code</h3>
+                                <p>Principes et bonnes pratiques</p>
+                                <div class="doc-count">30 documents</div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documents Récents -->
+                <section class="recent-docs">
+                    <h2>Documents Récents</h2>
+                    <div class="docs-grid">
+                        <div class="doc-card featured">
+                            <div class="doc-badge">Nouveau</div>
+                            <div class="doc-content">
+                                <h4>Architecture Microservices</h4>
+                                <p>Guide complet de l'architecture microservices</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 789</span>
+                                    <span><i class="fas fa-star"></i> 4.8</span>
+                                    <span><i class="fas fa-clock"></i> 6h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="doc-card">
+                            <div class="doc-content">
+                                <h4>Clean Code en Pratique</h4>
+                                <p>Techniques pour un code propre et maintenable</p>
+                                <div class="doc-meta">
+                                    <span><i class="fas fa-download"></i> 654</span>
+                                    <span><i class="fas fa-star"></i> 4.9</span>
+                                    <span><i class="fas fa-clock"></i> 4h de lecture</span>
+                                </div>
+                                <div class="doc-actions">
+                                    <button class="btn btn-primary">Télécharger</button>
+                                    <button class="btn btn-outline-primary"><i class="fas fa-bookmark"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajouter un modal pour les filtres avancés -->
+    <div class="modal fade" id="advancedSearchModal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Recherche avancée</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Catégories</label>
+                                <select class="form-select" multiple>
+                                    <option>Programmation</option>
+                                    <option>Intelligence Artificielle</option>
+                                    <option>Cybersécurité</option>
+                                    <!-- ... autres options ... -->
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Niveau</label>
+                                <div class="btn-group w-100">
+                                    <input type="radio" class="btn-check" name="level" id="beginner">
+                                    <label class="btn btn-outline-primary" for="beginner">Débutant</label>
+                                    <input type="radio" class="btn-check" name="level" id="intermediate">
+                                    <label class="btn btn-outline-primary" for="intermediate">Intermédiaire</label>
+                                    <input type="radio" class="btn-check" name="level" id="advanced">
+                                    <label class="btn btn-outline-primary" for="advanced">Avancé</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ... autres filtres ... -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ajouter un système de tags pour les documents -->
+    <div class="doc-tags">
+        <span class="tag">Python <i class="fas fa-times"></i></span>
+        <span class="tag">Machine Learning <i class="fas fa-times"></i></span>
+        <span class="tag">2024 <i class="fas fa-times"></i></span>
+    </div>
+
+    <!-- Ajout d'une modal d'achat pour les documents -->
+    <div class="modal fade" id="purchaseDocModal" tabindex="-1" aria-labelledby="purchaseDocModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="purchaseDocModalLabel">Télécharger le document</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="purchase-doc-details">
+                        <div class="doc-preview">
+                            <i class="fas fa-file-pdf doc-icon"></i>
+                            <div class="doc-preview-info">
+                                <h4 id="doc-title">Guide Complet Python</h4>
+                                <div class="doc-meta-preview">
+                                    <span><i class="fas fa-user"></i> <span id="doc-author">MAKORA</span></span>
+                                    <span><i class="fas fa-star"></i> <span id="doc-rating">4.8</span></span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="purchase-price-info">
+                            <div class="price-tag">
+                                <i class="fas fa-coins"></i> <span id="doc-points">50</span> points
+                            </div>
+                            <div class="user-balance">
+                                Votre solde: <span class="points-count">250</span> points
+                            </div>
+                        </div>
+                        
+                        <div class="purchase-benefits">
+                            <h5>Avantages de ce document</h5>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Format PDF de haute qualité</li>
+                                <li><i class="fas fa-check-circle"></i> Exercices pratiques inclus</li>
+                                <li><i class="fas fa-check-circle"></i> Accès permanent</li>
+                                <li><i class="fas fa-check-circle"></i> Mis à jour régulièrement</li>
+                            </ul>
+                        </div>
+                        
+                        <div id="insufficient-funds" class="alert alert-warning" style="display: none;">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Solde insuffisant. <a href="#" data-bs-toggle="modal" data-bs-target="#addPointsModal" data-bs-dismiss="modal">Ajouter des points</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="button" class="btn btn-primary btn-purchase-doc">
+                        <i class="fas fa-download me-2"></i> Télécharger maintenant
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/bibliotheque.js"></script>
+    <script src="js/platforms.js"></script>
+</body>
+</html> 
