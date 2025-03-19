@@ -1,0 +1,134 @@
+# ============================================================
+# FICHIER DE CONFIGURATION DES PLATEFORMES
+# ============================================================
+# Ce fichier contient tous les liens vers les plateformes externes
+# utilisées par le site Dev-thèque Afrique.
+# Format: NOM_PLATEFORME=URL
+# ============================================================
+
+# ============================================================
+# RÉSEAUX SOCIAUX
+# ============================================================
+
+# Plateforme principale
+SITE_URL=https://devtheque-afrique.com
+
+# Twitter
+TWITTER_URL=https://twitter.com/devtheque_afrique
+TWITTER_USERNAME=@devtheque_afrique
+
+# YouTube
+YOUTUBE_URL=https://www.youtube.com/channel/devthequeafrique
+YOUTUBE_SUBSCRIBE_URL=https://www.youtube.com/channel/devthequeafrique?sub_confirmation=1
+
+# Instagram
+INSTAGRAM_URL=https://www.instagram.com/devtheque_afrique/
+INSTAGRAM_USERNAME=@devtheque_afrique
+
+# LinkedIn
+LINKEDIN_URL=https://www.linkedin.com/company/devtheque-afrique/
+LINKEDIN_USERNAME=DevthequeAfrique
+
+# Telegram
+TELEGRAM_GROUP_URL=https://t.me/devtheque_afrique
+TELEGRAM_CHANNEL_URL=https://t.me/devtheque_afrique_channel
+
+# WhatsApp
+WHATSAPP_GROUP_INVITE=https://chat.whatsapp.com/invite/devthequeafrique
+WHATSAPP_CONTACT=+123456789
+
+# Github
+GITHUB_URL=https://github.com/devtheque-afrique
+GITHUB_ORGANIZATION=devtheque-afrique
+
+# Discord
+DISCORD_INVITE_URL=https://discord.gg/devthequeafrique
+
+# ============================================================
+# PLATEFORMES PÉDAGOGIQUES
+# ============================================================
+
+# Moodle (LMS)
+MOODLE_URL=https://cours.devtheque-afrique.com
+
+# Wiki de documentation
+WIKI_URL=https://wiki.devtheque-afrique.com
+
+# Forum de discussion
+FORUM_URL=https://forum.devtheque-afrique.com
+
+# ============================================================
+# API ET SERVICES TIERS
+# ============================================================
+
+# API principale
+API_BASE_URL=https://api.devtheque-afrique.com/v1
+
+# Service de paiement
+PAYMENT_GATEWAY_URL=https://payment.devtheque-afrique.com
+
+# Service d'authentification OAuth
+OAUTH_URL=https://auth.devtheque-afrique.com
+
+# ============================================================
+# SERVICES DE PAIEMENT MOBILE
+# ============================================================
+
+# Orange Money
+ORANGE_MONEY_MERCHANT_ID=DEVTHQ123456
+ORANGE_MONEY_API_URL=https://api.orange.com/orange-money-webpay/
+
+# MTN Mobile Money
+MTN_MOMO_MERCHANT_ID=DEVTHQ123456
+MTN_MOMO_API_URL=https://api.mtn.com/collection/v1/
+
+# T-Money
+TMONEY_MERCHANT_ID=DEVTHQ123456
+TMONEY_API_URL=https://api.togocom.tg/tmoney/v1/
+
+# Moov Money
+MOOV_MONEY_MERCHANT_ID=DEVTHQ123456
+MOOV_MONEY_API_URL=https://api.moov.africa/flooz/v1/
+
+# ============================================================
+# RESSOURCES EXTERNES
+# ============================================================
+
+# CDN pour les ressources statiques
+CDN_URL=https://cdn.devtheque-afrique.com
+
+# Serveur de fichiers
+FILES_SERVER_URL=https://files.devtheque-afrique.com
+
+# ============================================================
+# CONTACT ET SUPPORT
+# ============================================================
+
+# Email de contact
+CONTACT_EMAIL=contact@devtheque-afrique.com
+
+# Email de support
+SUPPORT_EMAIL=support@devtheque-afrique.com
+
+# Numéro de téléphone
+CONTACT_PHONE=+123456789
+
+# Formulaire de contact
+CONTACT_FORM_URL=https://devtheque-afrique.com/contact
+
+# ============================================================
+# ENVIRONNEMENTS DE DÉVELOPPEMENT
+# ============================================================
+
+# Environnement de développement
+DEV_URL=https://dev.devtheque-afrique.com
+
+# Environnement de test
+TEST_URL=https://test.devtheque-afrique.com
+
+# Environnement de staging
+STAGING_URL=https://staging.devtheque-afrique.com
+
+# ============================================================
+# FIN DU FICHIER
+# ============================================================ 
