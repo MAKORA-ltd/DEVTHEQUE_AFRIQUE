@@ -1,0 +1,147 @@
+/* Layout principal */
+.profile-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    min-height: 100vh;
+    background: var(--gold-darkest);
+}
+
+/* Sidebar */
+.profile-sidebar {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    padding: 2rem;
+    border-right: 1px solid var(--gold-border);
+}
+
+.user-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.user-avatar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1rem;
+}
+
+.user-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 3px solid var(--gold-accent);
+    object-fit: cover;
+}
+
+.edit-avatar {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: var(--gold-accent);
+    border: none;
+    color: var(--gold-darkest);
+    cursor: pointer;
+}
+
+.user-name {
+    color: var(--gold-light);
+    margin: 0.5rem 0;
+    font-size: 1.5rem;
+}
+
+.user-role {
+    color: var(--gold-text);
+    font-size: 0.9rem;
+}
+
+/* Navigation */
+.profile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    padding: 0.8rem 1rem;
+    color: var(--gold-text);
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover, .nav-item.active {
+    background: linear-gradient(145deg, var(--gold-dark), var(--gold-primary));
+    color: var(--gold-light);
+    transform: translateX(5px);
+}
+
+.nav-item i {
+    margin-right: 0.8rem;
+}
+
+/* Contenu principal */
+.profile-content {
+    padding: 2rem;
+}
+
+.profile-section {
+    display: none;
+}
+
+.profile-section.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Grilles et cartes */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    padding: 1.5rem;
+    border-radius: 10px;
+    text-align: center;
+    border: 1px solid var(--gold-border);
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.detail-item {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--gold-border);
+}
+
+/* Formulaires */
+.settings-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 

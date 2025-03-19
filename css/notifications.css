@@ -1,0 +1,142 @@
+/* Styles pour les notifications */
+.notification-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 0.7rem;
+    transform: translate(25%, -25%);
+}
+
+.notification-dropdown {
+    width: 320px;
+    padding: 0;
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.notification-header {
+    padding: 10px 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-light);
+}
+
+.notification-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+.notification-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.notification-item:hover {
+    background-color: var(--hover-bg);
+}
+
+.notification-item.unread {
+    background-color: var(--bg-light);
+}
+
+.notification-item.unread::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 15px;
+    left: 8px;
+}
+
+.notification-content {
+    padding-left: 10px;
+}
+
+.notification-time {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.notification-title {
+    font-weight: 600;
+    margin-bottom: 3px;
+}
+
+.notification-message {
+    font-size: 0.85rem;
+    margin-bottom: 0;
+    color: var(--text-secondary);
+    line-height: 1.4;
+}
+
+.notification-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+.notification-icon.account {
+    background-color: var(--danger);
+}
+
+.notification-icon.points {
+    background-color: var(--success);
+}
+
+.notification-icon.mention {
+    background-color: var(--primary);
+}
+
+.notification-icon.comment {
+    background-color: var(--info);
+}
+
+.notification-icon.search {
+    background-color: var(--warning);
+}
+
+.notification-icon.system {
+    background-color: var(--dark);
+}
+
+.notification-footer {
+    padding: 10px 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Page dédiée aux notifications */
+.notifications-page .notification-item {
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.notifications-page .notification-filters {
+    margin-bottom: 20px;
+}
+
+.notifications-page .filter-btn {
+    padding: 8px 15px;
+    border-radius: 20px;
+    margin-right: 8px;
+    font-size: 0.85rem;
+}
+
+.notifications-page .filter-btn.active {
+    background-color: var(--primary);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .notification-dropdown {
+        width: 290px;
+    }
+} 
