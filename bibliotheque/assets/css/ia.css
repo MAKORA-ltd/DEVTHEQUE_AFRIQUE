@@ -1,0 +1,111 @@
+/* Animations et effets visuels */
+.animated {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Stats dans l'en-tête */
+.header-stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+}
+
+.stat-item {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--gold-accent);
+}
+
+.stat-label {
+    color: var(--gold-text);
+    font-size: 0.9rem;
+}
+
+/* Navigation des sous-catégories */
+.subcategory-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    border: 1px solid var(--gold-border);
+    border-radius: 10px;
+    color: var(--gold-text);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-item:hover {
+    transform: translateY(-5px);
+    color: var(--gold-accent);
+}
+
+.nav-item i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Sections de contenu */
+.trending-section,
+.latest-resources,
+.community-section {
+    margin-bottom: 50px;
+}
+
+/* Cartes de la communauté */
+.community-card {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    border: 1px solid var(--gold-border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.author-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.author-info img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--gold-accent);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .subcategory-nav {
+        flex-wrap: wrap;
+    }
+
+    .nav-item {
+        width: calc(50% - 10px);
+    }
+} 

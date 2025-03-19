@@ -1,0 +1,117 @@
+/* Styles communs pour toutes les catégories */
+.bibliotheque-container {
+    padding: 20px;
+    background: linear-gradient(145deg, var(--gold-darkest), var(--gold-darker));
+    min-height: 100vh;
+}
+
+.section-header {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    border-radius: 15px;
+    padding: 40px;
+    margin-bottom: 30px;
+    border: 1px solid var(--gold-border);
+}
+
+.content-section {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    border: 1px solid var(--gold-border);
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 30px;
+}
+
+.doc-card, .tutorial-card, .exercise-card {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    border: 1px solid var(--gold-border);
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.doc-card:hover, .tutorial-card:hover, .exercise-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-header {
+        padding: 20px;
+    }
+
+    .content-section {
+        padding: 15px;
+    }
+}
+
+/* Ajout de styles pour la cohérence globale */
+.category-card {
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-card:hover {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Animation pour les transitions */
+.category-card, .doc-card, .tutorial-card {
+    transition: all 0.3s ease;
+}
+
+/* Amélioration des effets de survol */
+.category-card:hover .category-icon i,
+.doc-card:hover .doc-badge,
+.tutorial-card:hover .tutorial-video::after {
+    transform: scale(1.1);
+    color: var(--gold-accent);
+}
+
+/* Styles pour la barre de recherche */
+.search-bar input {
+    background: linear-gradient(145deg, var(--gold-darker), var(--gold-dark));
+    border: 1px solid var(--gold-border);
+    color: var(--gold-text);
+    padding: 10px 15px;
+    border-radius: 8px;
+    width: 100%;
+}
+
+.search-bar input::placeholder {
+    color: var(--gold-text);
+    opacity: 0.7;
+}
+
+/* Amélioration des filtres */
+.filters .btn-outline-primary {
+    border-color: var(--gold-border);
+    color: var(--gold-text);
+}
+
+.filters .btn-outline-primary:hover,
+.filters .btn-outline-primary.active {
+    background: var(--gold-accent);
+    border-color: var(--gold-accent);
+    color: var(--gold-darkest);
+}
+
+/* Responsive amélioré */
+@media (max-width: 768px) {
+    .category-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1001;
+        background: var(--gold-accent);
+        border: none;
+    }
+
+    .categories-sidebar.active {
+        transform: translateX(0);
+    }
+} 
